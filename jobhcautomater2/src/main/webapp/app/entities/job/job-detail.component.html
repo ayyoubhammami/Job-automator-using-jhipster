@@ -1,0 +1,147 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="job">
+            <h2><span jhiTranslate="jobHcAutomater2App.job.detail.title">Job</span> {{job.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.job.title">Title</span></dt>
+                <dd>
+                    <span>{{job.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.description">Description</span></dt>
+                <dd>
+                    <span>{{job.description}}</span>
+                </dd>
+                
+                 <dt><span jhiTranslate="jobHcAutomater2App.job.jobType">Job Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.JobType.' + job.jobType}}">{{job.jobType}}</span>
+                </dd>
+                
+                 <dt><span jhiTranslate="jobHcAutomater2App.job.country">Country</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.Country.' + job.country}}">{{job.country}}</span>
+                </dd>
+                
+                <dt><span jhiTranslate="jobHcAutomater2App.job.datePosted">Date Posted</span></dt>
+                <dd>
+                    <span>{{job.datePosted}}</span>
+                </dd>
+ 
+                 <dt><span jhiTranslate="jobHcAutomater2App.job.sourceSite">Source Site</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.Source.' + job.sourceSite}}">{{job.sourceSite}}</span>
+                </dd>
+                
+                 <dt><span jhiTranslate="jobHcAutomater2App.job.linkForDetails">Link For Details</span></dt>
+                <dd>
+                    <span>{{job.linkForDetails}}</span>
+                </dd>
+                
+                
+                
+                
+                
+                <dt><span jhiTranslate="jobHcAutomater2App.job.ratingClient">Rating Client</span></dt>
+                <dd>
+                    <span>{{job.ratingClient}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.paiementMethod">Paiement Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.PaiementMethod.' + job.paiementMethod}}">{{job.paiementMethod}}</span>
+                </dd>
+                
+                <dt><span jhiTranslate="jobHcAutomater2App.job.experienceLevel">Experience Level</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.ExperienceLevel.' + job.experienceLevel}}">{{job.experienceLevel}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.clientHiresNumber">Client Hires Number</span></dt>
+                <dd>
+                    <span>{{job.clientHiresNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.clientHistoryInfoIsPrevious">Client History Info Is Previous</span></dt>
+                <dd>
+                    <span>{{job.clientHistoryInfoIsPrevious}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.numberOfWantedHiring">Number Of Wanted Hiring</span></dt>
+                <dd>
+                    <span>{{job.numberOfWantedHiring}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.numberOfProposal">Number Of Proposal</span></dt>
+                <dd>
+                    <span>{{job.numberOfProposal}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.categoryProject">Category Project</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.CategoryProject.' + job.categoryProject}}">{{job.categoryProject}}</span>
+                </dd>
+               
+<!--                
+                <dt><span jhiTranslate="jobHcAutomater2App.job.statutOfOffer">Statut Of Offer</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.Statut.' + job.statutOfOffer}}">{{job.statutOfOffer}}</span>
+                </dd>
+                
+                
+                
+                 <dt><span jhiTranslate="jobHcAutomater2App.job.minBudget">Min Budget</span></dt>
+                <dd>
+                    <span>{{job.minBudget}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.maxBudget">Max Budget</span></dt>
+                <dd>
+                    <span>{{job.maxBudget}}</span>
+                </dd>
+                 -->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+<!--                 <dt><span jhiTranslate="jobHcAutomater2App.job.minBudget">Min Budget</span></dt>
+                <dd>
+                    <span>{{job.minBudget}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.maxBudget">Max Budget</span></dt>
+                <dd>
+                    <span>{{job.maxBudget}}</span>
+                </dd> -->
+
+             <!--    <dt><span jhiTranslate="jobHcAutomater2App.job.minHoursPerWeek">Min Hours Per Week</span></dt>
+                <dd>
+                    <span>{{job.minHoursPerWeek}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.maxHoursPerWeek">Max Hours Per Week</span></dt>
+                <dd>
+                    <span>{{job.maxHoursPerWeek}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.minProjectLenghtWithMonthUnit">Min Project Lenght With Month Unit</span></dt>
+                <dd>
+                    <span>{{job.minProjectLenghtWithMonthUnit}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.job.maxProjectLenghtWithMonthUnit">Max Project Lenght With Month Unit</span></dt>
+                <dd>
+                    <span>{{job.maxProjectLenghtWithMonthUnit}}</span>
+                </dd> -->
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job', job.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

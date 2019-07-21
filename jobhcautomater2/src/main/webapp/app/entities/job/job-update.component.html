@@ -1,0 +1,451 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-job-heading" jhiTranslate="jobHcAutomater2App.job.home.createOrEditLabel">Create or edit a Job</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!job.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="job.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="job.title" required/>
+                    <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="job.description" />
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.jobType" for="field_jobType">Job Type</label>
+                    <select class="form-control" name="jobType" [(ngModel)]="job.jobType" id="field_jobType" >
+                        <option value="HOURLY">{{'jobHcAutomater2App.JobType.HOURLY' | translate}}</option>
+                        <option value="FIXED">{{'jobHcAutomater2App.JobType.FIXED' | translate}}</option>
+                        <option value="CONTRACT">{{'jobHcAutomater2App.JobType.CONTRACT' | translate}}</option>
+                        <option value="OTHER">{{'jobHcAutomater2App.JobType.OTHER' | translate}}</option>
+                    </select>
+                </div>
+                
+                
+                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.country" for="field_country">Country</label>
+                    <select class="form-control" name="country" [(ngModel)]="job.country" id="field_country" >
+                        <option value="AALAND_ISLANDS">{{'jobHcAutomater2App.Country.AALAND_ISLANDS' | translate}}</option>
+                        <option value="AFGHANISTAN">{{'jobHcAutomater2App.Country.AFGHANISTAN' | translate}}</option>
+                        <option value="ALBANIA">{{'jobHcAutomater2App.Country.ALBANIA' | translate}}</option>
+                        <option value="ALGERIA">{{'jobHcAutomater2App.Country.ALGERIA' | translate}}</option>
+                        <option value="AMERICAN_SAMOA">{{'jobHcAutomater2App.Country.AMERICAN_SAMOA' | translate}}</option>
+                        <option value="ANDORRA">{{'jobHcAutomater2App.Country.ANDORRA' | translate}}</option>
+                        <option value="ANGOLA">{{'jobHcAutomater2App.Country.ANGOLA' | translate}}</option>
+                        <option value="ANGUILLA">{{'jobHcAutomater2App.Country.ANGUILLA' | translate}}</option>
+                        <option value="ANTARCTICA">{{'jobHcAutomater2App.Country.ANTARCTICA' | translate}}</option>
+                        <option value="ANTIGUA_AND_BARBUDA">{{'jobHcAutomater2App.Country.ANTIGUA_AND_BARBUDA' | translate}}</option>
+                        <option value="ARGENTINA">{{'jobHcAutomater2App.Country.ARGENTINA' | translate}}</option>
+                        <option value="ARMENIA">{{'jobHcAutomater2App.Country.ARMENIA' | translate}}</option>
+                        <option value="ARUBA">{{'jobHcAutomater2App.Country.ARUBA' | translate}}</option>
+                        <option value="AUSTRALIA">{{'jobHcAutomater2App.Country.AUSTRALIA' | translate}}</option>
+                        <option value="AUSTRIA">{{'jobHcAutomater2App.Country.AUSTRIA' | translate}}</option>
+                        <option value="AZERBAIJAN">{{'jobHcAutomater2App.Country.AZERBAIJAN' | translate}}</option>
+                        <option value="BAHAMAS">{{'jobHcAutomater2App.Country.BAHAMAS' | translate}}</option>
+                        <option value="BAHRAIN">{{'jobHcAutomater2App.Country.BAHRAIN' | translate}}</option>
+                        <option value="BANGLADESH">{{'jobHcAutomater2App.Country.BANGLADESH' | translate}}</option>
+                        <option value="BARBADOS">{{'jobHcAutomater2App.Country.BARBADOS' | translate}}</option>
+                        <option value="BELARUS">{{'jobHcAutomater2App.Country.BELARUS' | translate}}</option>
+                        <option value="BELGIUM">{{'jobHcAutomater2App.Country.BELGIUM' | translate}}</option>
+                        <option value="BELIZE">{{'jobHcAutomater2App.Country.BELIZE' | translate}}</option>
+                        <option value="BENIN">{{'jobHcAutomater2App.Country.BENIN' | translate}}</option>
+                        <option value="BERMUDA">{{'jobHcAutomater2App.Country.BERMUDA' | translate}}</option>
+                        <option value="BHUTAN">{{'jobHcAutomater2App.Country.BHUTAN' | translate}}</option>
+                        <option value="BOLIVIA">{{'jobHcAutomater2App.Country.BOLIVIA' | translate}}</option>
+                        <option value="BOSNIA_AND_HERZEGOWINA">{{'jobHcAutomater2App.Country.BOSNIA_AND_HERZEGOWINA' | translate}}</option>
+                        <option value="BOUVET_ISLAND">{{'jobHcAutomater2App.Country.BOUVET_ISLAND' | translate}}</option>
+                        <option value="BRAZIL">{{'jobHcAutomater2App.Country.BRAZIL' | translate}}</option>
+                        <option value="BRITISH_INDIAN_OCEAN_TERRITORY">{{'jobHcAutomater2App.Country.BRITISH_INDIAN_OCEAN_TERRITORY' | translate}}</option>
+                        <option value="BRUNEI_DARUSSALAM">{{'jobHcAutomater2App.Country.BRUNEI_DARUSSALAM' | translate}}</option>
+                        <option value="BULGARIA">{{'jobHcAutomater2App.Country.BULGARIA' | translate}}</option>
+                        <option value="BURKINA_FASO">{{'jobHcAutomater2App.Country.BURKINA_FASO' | translate}}</option>
+                        <option value="BURUNDI">{{'jobHcAutomater2App.Country.BURUNDI' | translate}}</option>
+                        <option value="CAMBODIA">{{'jobHcAutomater2App.Country.CAMBODIA' | translate}}</option>
+                        <option value="CAMEROON">{{'jobHcAutomater2App.Country.CAMEROON' | translate}}</option>
+                        <option value="CANADA">{{'jobHcAutomater2App.Country.CANADA' | translate}}</option>
+                        <option value="CAPE_VERDE">{{'jobHcAutomater2App.Country.CAPE_VERDE' | translate}}</option>
+                        <option value="CAYMAN_ISLANDS">{{'jobHcAutomater2App.Country.CAYMAN_ISLANDS' | translate}}</option>
+                        <option value="CENTRAL_AFRICAN_REPUBLIC">{{'jobHcAutomater2App.Country.CENTRAL_AFRICAN_REPUBLIC' | translate}}</option>
+                        <option value="CHAD">{{'jobHcAutomater2App.Country.CHAD' | translate}}</option>
+                        <option value="CHILE">{{'jobHcAutomater2App.Country.CHILE' | translate}}</option>
+                        <option value="CHINA">{{'jobHcAutomater2App.Country.CHINA' | translate}}</option>
+                        <option value="CHRISTMAS_ISLAND">{{'jobHcAutomater2App.Country.CHRISTMAS_ISLAND' | translate}}</option>
+                        <option value="COCOS_KEELING_ISLANDS">{{'jobHcAutomater2App.Country.COCOS_KEELING_ISLANDS' | translate}}</option>
+                        <option value="COLOMBIA">{{'jobHcAutomater2App.Country.COLOMBIA' | translate}}</option>
+                        <option value="COMOROS">{{'jobHcAutomater2App.Country.COMOROS' | translate}}</option>
+                        <option value="CONGO">{{'jobHcAutomater2App.Country.CONGO' | translate}}</option>
+                        <option value="COOK_ISLANDS">{{'jobHcAutomater2App.Country.COOK_ISLANDS' | translate}}</option>
+                        <option value="COSTA_RICA">{{'jobHcAutomater2App.Country.COSTA_RICA' | translate}}</option>
+                        <option value="COTE_DIVOIRE">{{'jobHcAutomater2App.Country.COTE_DIVOIRE' | translate}}</option>
+                        <option value="CROATIA">{{'jobHcAutomater2App.Country.CROATIA' | translate}}</option>
+                        <option value="CUBA">{{'jobHcAutomater2App.Country.CUBA' | translate}}</option>
+                        <option value="CYPRUS">{{'jobHcAutomater2App.Country.CYPRUS' | translate}}</option>
+                        <option value="CZECH_REPUBLIC">{{'jobHcAutomater2App.Country.CZECH_REPUBLIC' | translate}}</option>
+                        <option value="DENMARK">{{'jobHcAutomater2App.Country.DENMARK' | translate}}</option>
+                        <option value="DJIBOUTI">{{'jobHcAutomater2App.Country.DJIBOUTI' | translate}}</option>
+                        <option value="DOMINICA">{{'jobHcAutomater2App.Country.DOMINICA' | translate}}</option>
+                        <option value="DOMINICAN_REPUBLIC">{{'jobHcAutomater2App.Country.DOMINICAN_REPUBLIC' | translate}}</option>
+                        <option value="EAST_TIMOR">{{'jobHcAutomater2App.Country.EAST_TIMOR' | translate}}</option>
+                        <option value="ECUADOR">{{'jobHcAutomater2App.Country.ECUADOR' | translate}}</option>
+                        <option value="EGYPT">{{'jobHcAutomater2App.Country.EGYPT' | translate}}</option>
+                        <option value="EL_SALVADOR">{{'jobHcAutomater2App.Country.EL_SALVADOR' | translate}}</option>
+                        <option value="EQUATORIAL_GUINEA">{{'jobHcAutomater2App.Country.EQUATORIAL_GUINEA' | translate}}</option>
+                        <option value="ERITREA">{{'jobHcAutomater2App.Country.ERITREA' | translate}}</option>
+                        <option value="ESTONIA">{{'jobHcAutomater2App.Country.ESTONIA' | translate}}</option>
+                        <option value="ETHIOPIA">{{'jobHcAutomater2App.Country.ETHIOPIA' | translate}}</option>
+                        <option value="FALKLAND_ISLANDS">{{'jobHcAutomater2App.Country.FALKLAND_ISLANDS' | translate}}</option>
+                        <option value="FAROE_ISLANDS">{{'jobHcAutomater2App.Country.FAROE_ISLANDS' | translate}}</option>
+                        <option value="FIJI">{{'jobHcAutomater2App.Country.FIJI' | translate}}</option>
+                        <option value="FINLAND">{{'jobHcAutomater2App.Country.FINLAND' | translate}}</option>
+                        <option value="FRANCE">{{'jobHcAutomater2App.Country.FRANCE' | translate}}</option>
+                        <option value="FRANCE_METROPOLITAN">{{'jobHcAutomater2App.Country.FRANCE_METROPOLITAN' | translate}}</option>
+                        <option value="FRENCH_GUIANA">{{'jobHcAutomater2App.Country.FRENCH_GUIANA' | translate}}</option>
+                        <option value="FRENCH_POLYNESIA">{{'jobHcAutomater2App.Country.FRENCH_POLYNESIA' | translate}}</option>
+                        <option value="FRENCH_SOUTHERN_TERRITORIES">{{'jobHcAutomater2App.Country.FRENCH_SOUTHERN_TERRITORIES' | translate}}</option>
+                        <option value="GABON">{{'jobHcAutomater2App.Country.GABON' | translate}}</option>
+                        <option value="GAMBIA">{{'jobHcAutomater2App.Country.GAMBIA' | translate}}</option>
+                        <option value="GEORGIA">{{'jobHcAutomater2App.Country.GEORGIA' | translate}}</option>
+                        <option value="GERMANY">{{'jobHcAutomater2App.Country.GERMANY' | translate}}</option>
+                        <option value="GHANA">{{'jobHcAutomater2App.Country.GHANA' | translate}}</option>
+                        <option value="GIBRALTAR">{{'jobHcAutomater2App.Country.GIBRALTAR' | translate}}</option>
+                        <option value="GREECE">{{'jobHcAutomater2App.Country.GREECE' | translate}}</option>
+                        <option value="GREENLAND">{{'jobHcAutomater2App.Country.GREENLAND' | translate}}</option>
+                        <option value="GRENADA">{{'jobHcAutomater2App.Country.GRENADA' | translate}}</option>
+                        <option value="GUADELOUPE">{{'jobHcAutomater2App.Country.GUADELOUPE' | translate}}</option>
+                        <option value="GUAM">{{'jobHcAutomater2App.Country.GUAM' | translate}}</option>
+                        <option value="GUATEMALA">{{'jobHcAutomater2App.Country.GUATEMALA' | translate}}</option>
+                        <option value="GUINEA">{{'jobHcAutomater2App.Country.GUINEA' | translate}}</option>
+                        <option value="GUINEA_BISSAU">{{'jobHcAutomater2App.Country.GUINEA_BISSAU' | translate}}</option>
+                        <option value="GUYANA">{{'jobHcAutomater2App.Country.GUYANA' | translate}}</option>
+                        <option value="HAITI">{{'jobHcAutomater2App.Country.HAITI' | translate}}</option>
+                        <option value="HEARD_AND_MC_DONALD_ISLANDS">{{'jobHcAutomater2App.Country.HEARD_AND_MC_DONALD_ISLANDS' | translate}}</option>
+                        <option value="HONDURAS">{{'jobHcAutomater2App.Country.HONDURAS' | translate}}</option>
+                        <option value="HONG_KONG">{{'jobHcAutomater2App.Country.HONG_KONG' | translate}}</option>
+                        <option value="HUNGARY">{{'jobHcAutomater2App.Country.HUNGARY' | translate}}</option>
+                        <option value="ICELAND">{{'jobHcAutomater2App.Country.ICELAND' | translate}}</option>
+                        <option value="INDIA">{{'jobHcAutomater2App.Country.INDIA' | translate}}</option>
+                        <option value="INDONESIA">{{'jobHcAutomater2App.Country.INDONESIA' | translate}}</option>
+                        <option value="IRAN_ISLAMIC_REPUBLIC_OF">{{'jobHcAutomater2App.Country.IRAN_ISLAMIC_REPUBLIC_OF' | translate}}</option>
+                        <option value="IRAQ">{{'jobHcAutomater2App.Country.IRAQ' | translate}}</option>
+                        <option value="IRELAND">{{'jobHcAutomater2App.Country.IRELAND' | translate}}</option>
+                        <option value="ISRAEL">{{'jobHcAutomater2App.Country.ISRAEL' | translate}}</option>
+                        <option value="ITALY">{{'jobHcAutomater2App.Country.ITALY' | translate}}</option>
+                        <option value="JAMAICA">{{'jobHcAutomater2App.Country.JAMAICA' | translate}}</option>
+                        <option value="JAPAN">{{'jobHcAutomater2App.Country.JAPAN' | translate}}</option>
+                        <option value="JORDAN">{{'jobHcAutomater2App.Country.JORDAN' | translate}}</option>
+                        <option value="KAZAKHSTAN">{{'jobHcAutomater2App.Country.KAZAKHSTAN' | translate}}</option>
+                        <option value="KENYA">{{'jobHcAutomater2App.Country.KENYA' | translate}}</option>
+                        <option value="KIRIBATI">{{'jobHcAutomater2App.Country.KIRIBATI' | translate}}</option>
+                        <option value="KOREA_DEMOCRATIC_PEOPLES_REPUBLIC_OF">{{'jobHcAutomater2App.Country.KOREA_DEMOCRATIC_PEOPLES_REPUBLIC_OF' | translate}}</option>
+                        <option value="KOREA_REPUBLIC_OF">{{'jobHcAutomater2App.Country.KOREA_REPUBLIC_OF' | translate}}</option>
+                        <option value="KUWAIT">{{'jobHcAutomater2App.Country.KUWAIT' | translate}}</option>
+                        <option value="KYRGYZSTAN">{{'jobHcAutomater2App.Country.KYRGYZSTAN' | translate}}</option>
+                        <option value="LAO_PEOPLES_DEMOCRATIC_REPUBLIC">{{'jobHcAutomater2App.Country.LAO_PEOPLES_DEMOCRATIC_REPUBLIC' | translate}}</option>
+                        <option value="LATVIA">{{'jobHcAutomater2App.Country.LATVIA' | translate}}</option>
+                        <option value="LEBANON">{{'jobHcAutomater2App.Country.LEBANON' | translate}}</option>
+                        <option value="LESOTHO">{{'jobHcAutomater2App.Country.LESOTHO' | translate}}</option>
+                        <option value="LIBERIA">{{'jobHcAutomater2App.Country.LIBERIA' | translate}}</option>
+                        <option value="LIBYAN_ARAB_JAMAHIRIYA">{{'jobHcAutomater2App.Country.LIBYAN_ARAB_JAMAHIRIYA' | translate}}</option>
+                        <option value="LIECHTENSTEIN">{{'jobHcAutomater2App.Country.LIECHTENSTEIN' | translate}}</option>
+                        <option value="LITHUANIA">{{'jobHcAutomater2App.Country.LITHUANIA' | translate}}</option>
+                        <option value="LUXEMBOURG">{{'jobHcAutomater2App.Country.LUXEMBOURG' | translate}}</option>
+                        <option value="MACAU">{{'jobHcAutomater2App.Country.MACAU' | translate}}</option>
+                        <option value="MACEDONIA_THE_FORMER_YUGOSLAV_REPUBLIC_OF">{{'jobHcAutomater2App.Country.MACEDONIA_THE_FORMER_YUGOSLAV_REPUBLIC_OF' | translate}}</option>
+                        <option value="MADAGASCAR">{{'jobHcAutomater2App.Country.MADAGASCAR' | translate}}</option>
+                        <option value="MALAWI">{{'jobHcAutomater2App.Country.MALAWI' | translate}}</option>
+                        <option value="MALAYSIA">{{'jobHcAutomater2App.Country.MALAYSIA' | translate}}</option>
+                        <option value="MALDIVES">{{'jobHcAutomater2App.Country.MALDIVES' | translate}}</option>
+                        <option value="MALI">{{'jobHcAutomater2App.Country.MALI' | translate}}</option>
+                        <option value="MALTA">{{'jobHcAutomater2App.Country.MALTA' | translate}}</option>
+                        <option value="MARSHALL_ISLANDS">{{'jobHcAutomater2App.Country.MARSHALL_ISLANDS' | translate}}</option>
+                        <option value="MARTINIQUE">{{'jobHcAutomater2App.Country.MARTINIQUE' | translate}}</option>
+                        <option value="MAURITANIA">{{'jobHcAutomater2App.Country.MAURITANIA' | translate}}</option>
+                        <option value="MAURITIUS">{{'jobHcAutomater2App.Country.MAURITIUS' | translate}}</option>
+                        <option value="MAYOTTE">{{'jobHcAutomater2App.Country.MAYOTTE' | translate}}</option>
+                        <option value="MEXICO">{{'jobHcAutomater2App.Country.MEXICO' | translate}}</option>
+                        <option value="MICRONESIA_FEDERATED_STATES_OF">{{'jobHcAutomater2App.Country.MICRONESIA_FEDERATED_STATES_OF' | translate}}</option>
+                        <option value="MOLDOVA_REPUBLIC_OF">{{'jobHcAutomater2App.Country.MOLDOVA_REPUBLIC_OF' | translate}}</option>
+                        <option value="MONACO">{{'jobHcAutomater2App.Country.MONACO' | translate}}</option>
+                        <option value="MONGOLIA">{{'jobHcAutomater2App.Country.MONGOLIA' | translate}}</option>
+                        <option value="MONTSERRAT">{{'jobHcAutomater2App.Country.MONTSERRAT' | translate}}</option>
+                        <option value="MOROCCO">{{'jobHcAutomater2App.Country.MOROCCO' | translate}}</option>
+                        <option value="MOZAMBIQUE">{{'jobHcAutomater2App.Country.MOZAMBIQUE' | translate}}</option>
+                        <option value="MYANMAR">{{'jobHcAutomater2App.Country.MYANMAR' | translate}}</option>
+                        <option value="NAMIBIA">{{'jobHcAutomater2App.Country.NAMIBIA' | translate}}</option>
+                        <option value="NAURU">{{'jobHcAutomater2App.Country.NAURU' | translate}}</option>
+                        <option value="NEPAL">{{'jobHcAutomater2App.Country.NEPAL' | translate}}</option>
+                        <option value="NETHERLANDS">{{'jobHcAutomater2App.Country.NETHERLANDS' | translate}}</option>
+                        <option value="NETHERLANDS_ANTILLES">{{'jobHcAutomater2App.Country.NETHERLANDS_ANTILLES' | translate}}</option>
+                        <option value="NEW_CALEDONIA">{{'jobHcAutomater2App.Country.NEW_CALEDONIA' | translate}}</option>
+                        <option value="NEW_ZEALAND">{{'jobHcAutomater2App.Country.NEW_ZEALAND' | translate}}</option>
+                        <option value="NICARAGUA">{{'jobHcAutomater2App.Country.NICARAGUA' | translate}}</option>
+                        <option value="NIGER">{{'jobHcAutomater2App.Country.NIGER' | translate}}</option>
+                        <option value="NIGERIA">{{'jobHcAutomater2App.Country.NIGERIA' | translate}}</option>
+                        <option value="NIUE">{{'jobHcAutomater2App.Country.NIUE' | translate}}</option>
+                        <option value="NORFOLK_ISLAND">{{'jobHcAutomater2App.Country.NORFOLK_ISLAND' | translate}}</option>
+                        <option value="NORTHERN_MARIANA_ISLANDS">{{'jobHcAutomater2App.Country.NORTHERN_MARIANA_ISLANDS' | translate}}</option>
+                        <option value="NORWAY">{{'jobHcAutomater2App.Country.NORWAY' | translate}}</option>
+                        <option value="OMAN">{{'jobHcAutomater2App.Country.OMAN' | translate}}</option>
+                        <option value="PAKISTAN">{{'jobHcAutomater2App.Country.PAKISTAN' | translate}}</option>
+                        <option value="PALAU">{{'jobHcAutomater2App.Country.PALAU' | translate}}</option>
+                        <option value="PANAMA">{{'jobHcAutomater2App.Country.PANAMA' | translate}}</option>
+                        <option value="PAPUA_NEW_GUINEA">{{'jobHcAutomater2App.Country.PAPUA_NEW_GUINEA' | translate}}</option>
+                        <option value="PARAGUAY">{{'jobHcAutomater2App.Country.PARAGUAY' | translate}}</option>
+                        <option value="PERU">{{'jobHcAutomater2App.Country.PERU' | translate}}</option>
+                        <option value="PHILIPPINES">{{'jobHcAutomater2App.Country.PHILIPPINES' | translate}}</option>
+                        <option value="PITCAIRN">{{'jobHcAutomater2App.Country.PITCAIRN' | translate}}</option>
+                        <option value="POLAND">{{'jobHcAutomater2App.Country.POLAND' | translate}}</option>
+                        <option value="PORTUGAL">{{'jobHcAutomater2App.Country.PORTUGAL' | translate}}</option>
+                        <option value="PUERTO_RICO">{{'jobHcAutomater2App.Country.PUERTO_RICO' | translate}}</option>
+                        <option value="QATAR">{{'jobHcAutomater2App.Country.QATAR' | translate}}</option>
+                        <option value="REUNION">{{'jobHcAutomater2App.Country.REUNION' | translate}}</option>
+                        <option value="ROMANIA">{{'jobHcAutomater2App.Country.ROMANIA' | translate}}</option>
+                        <option value="RUSSIAN_FEDERATION">{{'jobHcAutomater2App.Country.RUSSIAN_FEDERATION' | translate}}</option>
+                        <option value="RWANDA">{{'jobHcAutomater2App.Country.RWANDA' | translate}}</option>
+                        <option value="SAINT_KITTS_AND_NEVIS">{{'jobHcAutomater2App.Country.SAINT_KITTS_AND_NEVIS' | translate}}</option>
+                        <option value="SAINT_LUCIA">{{'jobHcAutomater2App.Country.SAINT_LUCIA' | translate}}</option>
+                        <option value="SAINT_VINCENT_AND_THE_GRENADINES">{{'jobHcAutomater2App.Country.SAINT_VINCENT_AND_THE_GRENADINES' | translate}}</option>
+                        <option value="SAMOA">{{'jobHcAutomater2App.Country.SAMOA' | translate}}</option>
+                        <option value="SAN_MARINO">{{'jobHcAutomater2App.Country.SAN_MARINO' | translate}}</option>
+                        <option value="SAO_TOME_AND_PRINCIPE">{{'jobHcAutomater2App.Country.SAO_TOME_AND_PRINCIPE' | translate}}</option>
+                        <option value="SAUDI_ARABIA">{{'jobHcAutomater2App.Country.SAUDI_ARABIA' | translate}}</option>
+                        <option value="SENEGAL">{{'jobHcAutomater2App.Country.SENEGAL' | translate}}</option>
+                        <option value="SEYCHELLES">{{'jobHcAutomater2App.Country.SEYCHELLES' | translate}}</option>
+                        <option value="SIERRA_LEONE">{{'jobHcAutomater2App.Country.SIERRA_LEONE' | translate}}</option>
+                        <option value="SINGAPORE">{{'jobHcAutomater2App.Country.SINGAPORE' | translate}}</option>
+                        <option value="SLOVAKIA">{{'jobHcAutomater2App.Country.SLOVAKIA' | translate}}</option>
+                        <option value="SLOVENIA">{{'jobHcAutomater2App.Country.SLOVENIA' | translate}}</option>
+                        <option value="SOLOMON_ISLANDS">{{'jobHcAutomater2App.Country.SOLOMON_ISLANDS' | translate}}</option>
+                        <option value="SOMALIA">{{'jobHcAutomater2App.Country.SOMALIA' | translate}}</option>
+                        <option value="SOUTH_AFRICA">{{'jobHcAutomater2App.Country.SOUTH_AFRICA' | translate}}</option>
+                        <option value="SPAIN">{{'jobHcAutomater2App.Country.SPAIN' | translate}}</option>
+                        <option value="SRI_LANKA">{{'jobHcAutomater2App.Country.SRI_LANKA' | translate}}</option>
+                        <option value="ST_HELENA">{{'jobHcAutomater2App.Country.ST_HELENA' | translate}}</option>
+                        <option value="ST_PIERRE_AND_MIQUELON">{{'jobHcAutomater2App.Country.ST_PIERRE_AND_MIQUELON' | translate}}</option>
+                        <option value="SUDAN">{{'jobHcAutomater2App.Country.SUDAN' | translate}}</option>
+                        <option value="SURINAME">{{'jobHcAutomater2App.Country.SURINAME' | translate}}</option>
+                        <option value="SVALBARD_AND_JAN_MAYEN_ISLANDS">{{'jobHcAutomater2App.Country.SVALBARD_AND_JAN_MAYEN_ISLANDS' | translate}}</option>
+                        <option value="SWAZILAND">{{'jobHcAutomater2App.Country.SWAZILAND' | translate}}</option>
+                        <option value="SWEDEN">{{'jobHcAutomater2App.Country.SWEDEN' | translate}}</option>
+                        <option value="SWITZERLAND">{{'jobHcAutomater2App.Country.SWITZERLAND' | translate}}</option>
+                        <option value="SYRIAN_ARAB_REPUBLIC">{{'jobHcAutomater2App.Country.SYRIAN_ARAB_REPUBLIC' | translate}}</option>
+                        <option value="TAIWAN_PROVINCE_OF_CHINA">{{'jobHcAutomater2App.Country.TAIWAN_PROVINCE_OF_CHINA' | translate}}</option>
+                        <option value="TAJIKISTAN">{{'jobHcAutomater2App.Country.TAJIKISTAN' | translate}}</option>
+                        <option value="TANZANIA_UNITED_REPUBLIC_OF">{{'jobHcAutomater2App.Country.TANZANIA_UNITED_REPUBLIC_OF' | translate}}</option>
+                        <option value="THAILAND">{{'jobHcAutomater2App.Country.THAILAND' | translate}}</option>
+                        <option value="TOGO">{{'jobHcAutomater2App.Country.TOGO' | translate}}</option>
+                        <option value="TOKELAU">{{'jobHcAutomater2App.Country.TOKELAU' | translate}}</option>
+                        <option value="TONGA">{{'jobHcAutomater2App.Country.TONGA' | translate}}</option>
+                        <option value="TRINIDAD_AND_TOBAGO">{{'jobHcAutomater2App.Country.TRINIDAD_AND_TOBAGO' | translate}}</option>
+                        <option value="TUNISIA">{{'jobHcAutomater2App.Country.TUNISIA' | translate}}</option>
+                        <option value="TURKEY">{{'jobHcAutomater2App.Country.TURKEY' | translate}}</option>
+                        <option value="TURKMENISTAN">{{'jobHcAutomater2App.Country.TURKMENISTAN' | translate}}</option>
+                        <option value="TURKS_AND_CAICOS_ISLANDS">{{'jobHcAutomater2App.Country.TURKS_AND_CAICOS_ISLANDS' | translate}}</option>
+                        <option value="TUVALU">{{'jobHcAutomater2App.Country.TUVALU' | translate}}</option>
+                        <option value="UGANDA">{{'jobHcAutomater2App.Country.UGANDA' | translate}}</option>
+                        <option value="UKRAINE">{{'jobHcAutomater2App.Country.UKRAINE' | translate}}</option>
+                        <option value="UNITED_ARAB_EMIRATES">{{'jobHcAutomater2App.Country.UNITED_ARAB_EMIRATES' | translate}}</option>
+                        <option value="UNITED_KINGDOM">{{'jobHcAutomater2App.Country.UNITED_KINGDOM' | translate}}</option>
+                        <option value="UNITED_STATES">{{'jobHcAutomater2App.Country.UNITED_STATES' | translate}}</option>
+                        <option value="UNITED_STATES_MINOR_OUTLYING_ISLANDS">{{'jobHcAutomater2App.Country.UNITED_STATES_MINOR_OUTLYING_ISLANDS' | translate}}</option>
+                        <option value="URUGUAY">{{'jobHcAutomater2App.Country.URUGUAY' | translate}}</option>
+                        <option value="UZBEKISTAN">{{'jobHcAutomater2App.Country.UZBEKISTAN' | translate}}</option>
+                        <option value="VANUATU">{{'jobHcAutomater2App.Country.VANUATU' | translate}}</option>
+                        <option value="VATICAN_CITY_STATE">{{'jobHcAutomater2App.Country.VATICAN_CITY_STATE' | translate}}</option>
+                        <option value="VENEZUELA">{{'jobHcAutomater2App.Country.VENEZUELA' | translate}}</option>
+                        <option value="VIETNAM">{{'jobHcAutomater2App.Country.VIETNAM' | translate}}</option>
+                        <option value="VIRGIN_ISLANDS_BRITISH">{{'jobHcAutomater2App.Country.VIRGIN_ISLANDS_BRITISH' | translate}}</option>
+                        <option value="VIRGIN_ISLANDS_US">{{'jobHcAutomater2App.Country.VIRGIN_ISLANDS_US' | translate}}</option>
+                        <option value="WALLIS_AND_FUTUNA_ISLANDS">{{'jobHcAutomater2App.Country.WALLIS_AND_FUTUNA_ISLANDS' | translate}}</option>
+                        <option value="WESTERN_SAHARA">{{'jobHcAutomater2App.Country.WESTERN_SAHARA' | translate}}</option>
+                        <option value="YEMEN">{{'jobHcAutomater2App.Country.YEMEN' | translate}}</option>
+                        <option value="YUGOSLAVIA">{{'jobHcAutomater2App.Country.YUGOSLAVIA' | translate}}</option>
+                        <option value="ZAIRE">{{'jobHcAutomater2App.Country.ZAIRE' | translate}}</option>
+                        <option value="ZAMBIA">{{'jobHcAutomater2App.Country.ZAMBIA' | translate}}</option>
+                        <option value="ZIMBABWE">{{'jobHcAutomater2App.Country.ZIMBABWE' | translate}}</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.datePosted" for="field_datePosted">Date Posted</label>
+                    <div class="input-group">
+                        <input id="field_datePosted" type="date" class="form-control" name="datePosted" ngbDatepicker  #datePostedDp="ngbDatepicker" [(ngModel)]="job.datePosted"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePostedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+               
+               
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.sourceSite" for="field_sourceSite">Source Site</label>
+                    <select class="form-control" name="sourceSite" [(ngModel)]="job.sourceSite" id="field_sourceSite"  required>
+                        <option value="UPWORK">{{'jobHcAutomater2App.Source.UPWORK' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.sourceSite?.dirty && editForm.controls.sourceSite?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.sourceSite?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.linkForDetails" for="field_linkForDetails">Link For Details</label>
+                    <input type="text" class="form-control" name="linkForDetails" id="field_linkForDetails"
+                        [(ngModel)]="job.linkForDetails" required/>
+                    <div [hidden]="!(editForm.controls.linkForDetails?.dirty && editForm.controls.linkForDetails?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkForDetails?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                
+
+               
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.ratingClient" for="field_ratingClient">Rating Client</label>
+                    <input type="number" class="form-control" name="ratingClient" id="field_ratingClient"
+                        [(ngModel)]="job.ratingClient" min="0" jhiMin="0" max="10" jhiMax="10"/>
+                    <div [hidden]="!(editForm.controls.ratingClient?.dirty && editForm.controls.ratingClient?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.ratingClient?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.ratingClient?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 10 }">
+                            This field cannot be more than 10.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.ratingClient?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                
+         
+                
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.paiementMethod" for="field_paiementMethod">Paiement Method</label>
+                    <select class="form-control" name="paiementMethod" [(ngModel)]="job.paiementMethod" id="field_paiementMethod" >
+                        <option value="VERIFIED">{{'jobHcAutomater2App.PaiementMethod.VERIFIED' | translate}}</option>
+                        <option value="NOTVERIFIED">{{'jobHcAutomater2App.PaiementMethod.NOTVERIFIED' | translate}}</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.experienceLevel" for="field_experienceLevel">Experience Level</label>
+                    <select class="form-control" name="experienceLevel" [(ngModel)]="job.experienceLevel" id="field_experienceLevel" >
+                        <option value="EntryLevel">{{'jobHcAutomater2App.ExperienceLevel.EntryLevel' | translate}}</option>
+                        <option value="Intermediate">{{'jobHcAutomater2App.ExperienceLevel.Intermediate' | translate}}</option>
+                        <option value="Expert">{{'jobHcAutomater2App.ExperienceLevel.Expert' | translate}}</option>
+                    </select>
+                </div>
+              
+              
+              <div>
+              <label> Client Hires Number   </label>
+              <ng5-slider [(value)]="job.clientHiresNumber" [options]="options3"></ng5-slider>
+              </div>
+       
+              
+              
+              
+               
+                
+                
+                
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.numberOfWantedHiring" for="field_numberOfWantedHiring">Number Of Wanted Hiring</label>
+                    <input type="number" class="form-control" name="numberOfWantedHiring" id="field_numberOfWantedHiring"
+                        [(ngModel)]="job.numberOfWantedHiring" />
+                </div>
+                
+                
+                
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.numberOfProposal" for="field_numberOfProposal">Number Of Proposal</label>
+                    <input type="number" class="form-control" name="numberOfProposal" id="field_numberOfProposal"
+                        [(ngModel)]="job.numberOfProposal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.categoryProject" for="field_categoryProject">Category Project</label>
+                    <select class="form-control" name="categoryProject" [(ngModel)]="job.categoryProject" id="field_categoryProject" >
+                        <option value="WEB">{{'jobHcAutomater2App.CategoryProject.WEB' | translate}}</option>
+                        <option value="MOBILE">{{'jobHcAutomater2App.CategoryProject.MOBILE' | translate}}</option>
+                    </select>
+                </div>
+               
+               
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.statutOfOffer" for="field_statutOfOffer">Statut Of Offer</label>
+                    <select class="form-control" name="statutOfOffer" [(ngModel)]="job.statutOfOffer" id="field_statutOfOffer" >
+                        <option value="OPEN">{{'jobHcAutomater2App.Statut.OPEN' | translate}}</option>
+                        <option value="AWARDE">{{'jobHcAutomater2App.Statut.AWARDE' | translate}}</option>
+                        <option value="CLOSED">{{'jobHcAutomater2App.Statut.CLOSED' | translate}}</option>
+                        <option value="EXPIRED">{{'jobHcAutomater2App.Statut.EXPIRED' | translate}}</option>
+                    </select>
+                </div>
+                
+   
+		
+		<div class="form-group">
+		 <label> Budget </label>
+		<ng5-slider [(value)]="job.minBudget" [(highValue)]="job.maxBudget" [options]="options"></ng5-slider>       
+    	 </div>            
+                
+
+                
+                
+                
+        <div class="form-group1">
+		 <label>Hours Per Week</label>
+		<ng5-slider [(value)]="job.minHoursPerWeek" [(highValue)]="job.maxHoursPerWeek" [options]="options1"></ng5-slider>
+                
+    	 </div> 
+                
+
+        <div class="form-group2">
+		 		 <label>Project Lenght With Month Unit</label>		 
+		<ng5-slider [(value)]="job.minProjectLenghtWithMonthUnit" [(highValue)]="job.maxProjectLenghtWithMonthUnit" [options]="options2"></ng5-slider>
+                
+    	 </div> 
+
+
+              
+ 			 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.job.clientHistoryInfoIsPrevious" for="field_clientHistoryInfoIsPrevious">Client History Info Is Previous</label>
+                    <input type="checkbox" class="form-control" name="clientHistoryInfoIsPrevious" id="field_clientHistoryInfoIsPrevious"
+                        [(ngModel)]="job.clientHistoryInfoIsPrevious" />
+                </div>
+ 
+ 
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

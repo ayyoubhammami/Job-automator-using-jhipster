@@ -1,0 +1,35 @@
+
+{
+    "jobHcAutomater2App": {
+        "freelancerDetails" : {
+            "home": {
+                "title": "Freelancer Details",
+                "createLabel": "Create a new Freelancer Details",
+                "createOrEditLabel": "Create or edit a Freelancer Details"
+            },
+            "created": "A new Freelancer Details is created with identifier {{ param }}",
+            "updated": "A Freelancer Details is updated with identifier {{ param }}",
+            "deleted": "A Freelancer Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freelancer Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Freelancer Details"
+            },
+            "phone1": "Phone 1",
+            "phone2": "Phone 2",
+            "cin": "Cin",
+            "delevredDate": "Delevred Date",
+            "cnss": "Cnss",
+            "married": "Married",
+            "numberOfChildren": "Number Of Children",
+            "motorized": "Motorized",
+            "salary": "Salary",
+            "hiringDate": "Hiring Date",
+            "comments": "Comments",
+            "channelOfHiring": "Channel Of Hiring",
+            "recommendation": "Recommendation",
+            "user": "User"
+        }
+    }
+}

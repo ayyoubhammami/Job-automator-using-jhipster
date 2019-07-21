@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Affectation.
+    -->
+    <changeSet id="20190623224152-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="job_id"
+                                 baseTableName="affectation"
+                                 constraintName="fk_affectation_job_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+
+        <addForeignKeyConstraint baseColumnNames="affectations_id"
+                                 baseTableName="affectation_freelancer_details"
+                                 constraintName="fk_affectation_freelancer_details_affectations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="affectation"/>
+        <addForeignKeyConstraint baseColumnNames="freelancer_details_id"
+                                 baseTableName="affectation_freelancer_details"
+                                 constraintName="fk_affectation_freelancer_details_freelancer_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freelancer_details"/>
+        
+        <addForeignKeyConstraint baseColumnNames="affectations_id"
+                                 baseTableName="affectation_employee_details"
+                                 constraintName="fk_affectation_employee_details_affectations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="affectation"/>
+        <addForeignKeyConstraint baseColumnNames="employee_details_id"
+                                 baseTableName="affectation_employee_details"
+                                 constraintName="fk_affectation_employee_details_employee_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee_details"/>
+        
+    </changeSet>
+</databaseChangeLog>

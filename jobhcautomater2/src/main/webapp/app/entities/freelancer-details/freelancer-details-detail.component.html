@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="freelancerDetails">
+            <h2><span jhiTranslate="jobHcAutomater2App.freelancerDetails.detail.title">Freelancer Details</span> {{freelancerDetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.phone1">Phone 1</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.phone1}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.phone2">Phone 2</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.phone2}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.cin">Cin</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.cin}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.delevredDate">Delevred Date</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.delevredDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.cnss">Cnss</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.cnss}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.married">Married</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.married}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.numberOfChildren">Number Of Children</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.numberOfChildren}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.motorized">Motorized</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.motorized}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.salary">Salary</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.salary}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.hiringDate">Hiring Date</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.hiringDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.comments">Comments</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.channelOfHiring">Channel Of Hiring</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.channelOfHiring}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.recommendation">Recommendation</span></dt>
+                <dd>
+                    <span>{{freelancerDetails.recommendation}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.freelancerDetails.user">User</span></dt>
+                <dd>
+                    {{freelancerDetails.user?.firstName}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/freelancer-details', freelancerDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "jobHcAutomater2App": {
+        "SocialMediaType" : {
+            "null": "",
+            "Facebook": "Facebook",
+            "Linkedin": "Linkedin",
+            "Twitter": "Twitter"
+        }
+    }
+}

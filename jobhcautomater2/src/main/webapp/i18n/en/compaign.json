@@ -1,0 +1,26 @@
+
+{
+    "jobHcAutomater2App": {
+        "compaign" : {
+            "home": {
+                "title": "Compaigns",
+                "createLabel": "Create a new Compaign",
+                "createOrEditLabel": "Create or edit a Compaign"
+            },
+            "created": "A new Compaign is created with identifier {{ param }}",
+            "updated": "A Compaign is updated with identifier {{ param }}",
+            "deleted": "A Compaign is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Compaign {{ id }}?"
+            },
+            "detail": {
+                "title": "Compaign"
+            },
+            "ref": "Ref",
+            "title": "Title",
+            "desciption": "Desciption",
+            "img": "Img",
+            "socialMedia": "Social Media"
+        }
+    }
+}

@@ -1,0 +1,165 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-freelancer-details-heading" jhiTranslate="jobHcAutomater2App.freelancerDetails.home.createOrEditLabel">Create or edit a Freelancer Details</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!freelancerDetails.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="freelancerDetails.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.phone1" for="field_phone1">Phone 1</label>
+                    <input type="text" class="form-control" name="phone1" id="field_phone1"
+                        [(ngModel)]="freelancerDetails.phone1" required/>
+                    <div [hidden]="!(editForm.controls.phone1?.dirty && editForm.controls.phone1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.phone2" for="field_phone2">Phone 2</label>
+                    <input type="text" class="form-control" name="phone2" id="field_phone2"
+                        [(ngModel)]="freelancerDetails.phone2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.cin" for="field_cin">Cin</label>
+                    <input type="number" class="form-control" name="cin" id="field_cin"
+                        [(ngModel)]="freelancerDetails.cin" required/>
+                    <div [hidden]="!(editForm.controls.cin?.dirty && editForm.controls.cin?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.cin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.cin?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.delevredDate" for="field_delevredDate">Delevred Date</label>
+                    <div class="d-flex">
+                        <input id="field_delevredDate" type="datetime-local" class="form-control" name="delevredDate" [(ngModel)]="delevredDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.delevredDate?.dirty && editForm.controls.delevredDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.delevredDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.delevredDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.cnss" for="field_cnss">Cnss</label>
+                    <input type="number" class="form-control" name="cnss" id="field_cnss"
+                        [(ngModel)]="freelancerDetails.cnss" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.married" for="field_married">Married</label>
+                    <input type="checkbox" class="form-control" name="married" id="field_married"
+                        [(ngModel)]="freelancerDetails.married" />
+                    <div [hidden]="!(editForm.controls.married?.dirty && editForm.controls.married?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.married?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.numberOfChildren" for="field_numberOfChildren">Number Of Children</label>
+                    <input type="number" class="form-control" name="numberOfChildren" id="field_numberOfChildren"
+                        [(ngModel)]="freelancerDetails.numberOfChildren" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.motorized" for="field_motorized">Motorized</label>
+                    <input type="checkbox" class="form-control" name="motorized" id="field_motorized"
+                        [(ngModel)]="freelancerDetails.motorized" />
+                    <div [hidden]="!(editForm.controls.motorized?.dirty && editForm.controls.motorized?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.motorized?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.salary" for="field_salary">Salary</label>
+                    <input type="number" class="form-control" name="salary" id="field_salary"
+                        [(ngModel)]="freelancerDetails.salary" required/>
+                    <div [hidden]="!(editForm.controls.salary?.dirty && editForm.controls.salary?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.salary?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.salary?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.hiringDate" for="field_hiringDate">Hiring Date</label>
+                    <div class="d-flex">
+                        <input id="field_hiringDate" type="datetime-local" class="form-control" name="hiringDate" [(ngModel)]="hiringDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.hiringDate?.dirty && editForm.controls.hiringDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.hiringDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.hiringDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.comments" for="field_comments">Comments</label>
+                    <textarea class="form-control" name="comments" id="field_comments"
+                        [(ngModel)]="freelancerDetails.comments" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.channelOfHiring" for="field_channelOfHiring">Channel Of Hiring</label>
+                    <input type="text" class="form-control" name="channelOfHiring" id="field_channelOfHiring"
+                        [(ngModel)]="freelancerDetails.channelOfHiring" required/>
+                    <div [hidden]="!(editForm.controls.channelOfHiring?.dirty && editForm.controls.channelOfHiring?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.channelOfHiring?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.recommendation" for="field_recommendation">Recommendation</label>
+                    <textarea class="form-control" name="recommendation" id="field_recommendation"
+                        [(ngModel)]="freelancerDetails.recommendation" ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.freelancerDetails.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="freelancerDetails.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === freelancerDetails.user?.id ? freelancerDetails.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}} {{userOption.lastName}}</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

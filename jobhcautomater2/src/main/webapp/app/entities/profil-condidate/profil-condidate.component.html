@@ -1,0 +1,252 @@
+<div>
+
+
+
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.profilCondidate.home.title">Profil Condidates</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-profil-condidate" [routerLink]="['/profil-condidate/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jobHcAutomater2App.profilCondidate.home.createLabel">
+            Create new Profil Condidate
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="profilCondidates">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="jobHcAutomater2App.profilCondidate.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="jobHcAutomater2App.profilCondidate.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="jobHcAutomater2App.profilCondidate.phoneNumber">Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="jobHcAutomater2App.profilCondidate.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="facebook"><span jhiTranslate="jobHcAutomater2App.profilCondidate.facebook">Facebook</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="linkedIn"><span jhiTranslate="jobHcAutomater2App.profilCondidate.linkedIn">Linked In</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let profilCondidate of profilCondidates ;trackBy: trackId">
+                <td><a [routerLink]="['/profil-condidate', profilCondidate.id, 'view' ]">{{profilCondidate.id}}</a></td>
+                <td>{{profilCondidate.firstName}}</td>
+                <td>{{profilCondidate.lastName}}</td>
+                <td>{{profilCondidate.phoneNumber}}</td>
+                <td>{{profilCondidate.email}}</td>
+                <td>{{profilCondidate.facebook}}</td>
+                <td>{{profilCondidate.linkedIn}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/profil-condidate', profilCondidate.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/profil-condidate', profilCondidate.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'profil-condidate/'+ profilCondidate.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <jhi-drag-drop></jhi-drag-drop> -->
+
+
+    <h2>Drag and Drop demo</h2>
+    <div>
+          <table border="1" id="tab1">
+              <tr>
+                    <th>Possible</th>
+                    <th>Discussion</th>
+                    <th>Taged</th>
+                    <th>Deleted</th>
+              </tr>
+
+              <tr id="div1"
+              (drop)="drop($event)"
+              (dragover)="allowDrop($event)" *ngFor="let profilCondidate of profilCondidates ;trackBy: trackId">
+                  <td>
+                        <button
+                        draggable="true"
+                        (dragstart)="drag($event)"
+                        id="drag1"
+                        width="88"
+                        height="31">{{profilCondidate.firstName}}</button>
+                  </td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </table>
+    </div>
+
+<!--
+    <ul id="div1"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)"> Possible
+        <li *ngFor="let profilCondidate of profilCondidates ;trackBy: trackId">
+            <button
+            draggable="true"
+            (dragstart)="drag($event)"
+            id="drag1"
+            width="88"
+            height="31">{{profilCondidate.firstName}}</button>
+        </li>
+    </ul>
+
+    <ul id="div1"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)"> Discussion
+        <li>
+
+        </li>
+    </ul>
+
+
+    <ul id="div1"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)"> Taged
+        <li >
+
+        </li>
+    </ul>
+
+
+    <ul id="div1"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)"> Deleted
+        <li >
+
+        </li>
+    </ul> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="section_bg_gray">
+    <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		    <div class="ptb-50">
+		        <h2 class="text-center">Service Promo</h2>
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+	    <div class="col-sm-6 col-md-4">
+						<div class="single_what_we_do" id="div1"
+                        (drop)="drop($event)"
+                        (dragover)="allowDrop($event)" >
+							<div class="top_line"></div>
+							<div class="what_we_do_figure">
+								<h2>Possible</h2>
+							</div>
+							<div>
+                               <div class="single_what_we_do2"  *ngFor="let profilCondidate of profilCondidates ;trackBy: trackId"                                                 draggable="true"
+                               (dragstart)="drag($event)"
+                               id="drag1"
+                               width="88"
+                               height="31">
+
+                                        <div class="what_we_do_figure">
+                                                {{profilCondidate.firstName}}
+                                        </div>
+
+                                    </div>
+                            </div>
+						</div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                            <div class="single_what_we_do2" id="div1"
+                            (drop)="drop($event)"
+                            (dragover)="allowDrop($event)" >
+
+                                <div class="what_we_do_figure">
+                                    <h2>Discussion</h2>
+                                </div>
+                                <div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                                <div class="single_what_we_do2" id="div1"
+                                (drop)="drop($event)"
+                                (dragover)="allowDrop($event)" >
+
+                                    <div class="what_we_do_figure">
+                                        <h2>Taged</h2>
+                                    </div>
+
+                                </div>
+                            </div>
+
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

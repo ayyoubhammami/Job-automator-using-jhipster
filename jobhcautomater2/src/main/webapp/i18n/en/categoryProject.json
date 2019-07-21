@@ -1,0 +1,9 @@
+{
+    "jobHcAutomater2App": {
+        "CategoryProject" : {
+            "null": "",
+            "WEB": "WEB",
+            "MOBILE": "MOBILE"
+        }
+    }
+}

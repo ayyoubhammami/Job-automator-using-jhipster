@@ -1,0 +1,5 @@
+entity Keyword {
+   libelle String required,
+   description String required,
+}
+paginate Keyword with pagination

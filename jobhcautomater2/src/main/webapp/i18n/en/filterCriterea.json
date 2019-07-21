@@ -1,0 +1,24 @@
+
+{
+    "jobHcAutomater2App": {
+        "filterCriterea" : {
+            "home": {
+                "title": "Filter Critereas",
+                "createLabel": "Create a new Filter Criterea",
+                "createOrEditLabel": "Create or edit a Filter Criterea"
+            },
+            "created": "A new Filter Criterea is created with identifier {{ param }}",
+            "updated": "A Filter Criterea is updated with identifier {{ param }}",
+            "deleted": "A Filter Criterea is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Filter Criterea {{ id }}?"
+            },
+            "detail": {
+                "title": "Filter Criterea"
+            },
+            "name": "Name",
+            "value": "Value",
+            "internalFilter": "Internal Filter"
+        }
+    }
+}

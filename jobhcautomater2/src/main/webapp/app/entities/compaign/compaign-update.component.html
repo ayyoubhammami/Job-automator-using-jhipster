@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-compaign-heading" jhiTranslate="jobHcAutomater2App.compaign.home.createOrEditLabel">Create or edit a Compaign</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!compaign.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="compaign.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.compaign.ref" for="field_ref">Ref</label>
+                    <input type="text" class="form-control" name="ref" id="field_ref"
+                        [(ngModel)]="compaign.ref" required/>
+                    <div [hidden]="!(editForm.controls.ref?.dirty && editForm.controls.ref?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.ref?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.compaign.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="compaign.title" required/>
+                    <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.compaign.desciption" for="field_desciption">Desciption</label>
+                    <textarea  type="text" class="form-control" name="desciption" id="field_desciption"
+                        [(ngModel)]="compaign.desciption" required maxlength="800"></textarea>
+                    <div [hidden]="!(editForm.controls.desciption?.dirty && editForm.controls.desciption?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.desciption?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.desciption?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 800 }">
+                        This field cannot be longer than 800 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.compaign.img" for="field_img">Img</label>
+                    <div>
+                        <img [src]="'data:' + compaign.imgContentType + ';base64,' + compaign.img" style="max-height: 100px;" *ngIf="compaign.img" alt="compaign image"/>
+                        <div *ngIf="compaign.img" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{compaign.imgContentType}}, {{byteSize(compaign.img)}}</span>
+                            <button type="button" (click)="clearInputImage('img', 'imgContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_img" (change)="setFileData($event, compaign, 'img', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="img" id="field_img"
+                        [(ngModel)]="compaign.img" />
+                    <input type="hidden" class="form-control" name="imgContentType" id="field_imgContentType"
+                        [(ngModel)]="compaign.imgContentType" />
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jobHcAutomater2App.compaign.socialMedia" for="field_socialMedia">Social Media</label>
+                    <select class="form-control" id="field_socialMedia" multiple name="socialMedia" [(ngModel)]="compaign.socialMedias">
+                        <option [ngValue]="getSelected(compaign.socialMedias, socialMediaOption)" *ngFor="let socialMediaOption of socialmedias; trackBy: trackSocialMediaById">{{socialMediaOption.value}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+                <button  id="run-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-success">
+                    <span>Run now</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

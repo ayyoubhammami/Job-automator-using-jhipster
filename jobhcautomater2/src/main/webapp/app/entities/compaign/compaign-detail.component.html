@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="compaign">
+            <h2><span jhiTranslate="jobHcAutomater2App.compaign.detail.title">Compaign</span> {{compaign.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.compaign.ref">Ref</span></dt>
+                <dd>
+                    <span>{{compaign.ref}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.compaign.title">Title</span></dt>
+                <dd>
+                    <span>{{compaign.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.compaign.desciption">Desciption</span></dt>
+                <dd>
+                    <span>{{compaign.desciption}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.compaign.img">Img</span></dt>
+                <dd>
+                    <div *ngIf="compaign.img">
+                        <a (click)="openFile(compaign.imgContentType, compaign.img)">
+                            <img [src]="'data:' + compaign.imgContentType + ';base64,' + compaign.img" style="max-width: 100%;" alt="compaign image"/>
+                        </a>
+                        {{compaign.imgContentType}}, {{byteSize(compaign.img)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.compaign.socialMedia">Social Media</span></dt>
+                <dd>
+                    <span *ngFor="let socialMedia of compaign.socialMedias; let last = last">
+                        <a [routerLink]="['/social-media', socialMedia?.id, 'view' ]">{{socialMedia.value}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/compaign', compaign.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+
+            <button type="submit" id="run-entity"  class="btn btn-success" (click)="run_now()">
+                <span>Run now</span>
+            </button>
+        </div>
+    </div>
+</div>

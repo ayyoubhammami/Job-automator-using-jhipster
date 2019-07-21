@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+
+
+
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+
+    <include file="config/liquibase/changelog/20190621105820_added_entity_constraints_EmployeeDetails.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20190621105822_added_entity_constraints_FreelancerDetails.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20190624150857_added_entity_constraints_Compaign.xml" relativeToChangelogFile="false"/>
+
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+
+	<include file="config/liquibase/changelog/20190619132712_added_entity_ProfilCandidate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190619132713_added_entity_Candidature.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190619132714_added_entity_Post.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190619132713_added_entity_constraints_Candidature.xml" relativeToChangelogFile="false"/>
+
+   <include file="config/liquibase/changelog/20190621105820_added_entity_EmployeeDetails.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190621105822_added_entity_FreelancerDetails.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190617130316_added_entity_ProfilCondidate.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190617155232_added_entity_Job.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190623224152_added_entity_Affectation.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190624143004_added_entity_Source.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190625090022_added_entity_Keyword.xml" relativeToChangelogFile="false"/>
+
+   <include file="config/liquibase/changelog/20190627104051_added_entity_Email.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190625214522_added_entity_InternalFilter.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190624150857_added_entity_Compaign.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190624150858_added_entity_SocialMedia.xml" relativeToChangelogFile="false"/>
+
+   <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+
+   
+
+ 
+  <!-- <include file="config/liquibase/changelog/20190617124051_added_entity_constraints_FilterCriterea.xml" relativeToChangelogFile="false"/> -->
+   <include file="config/liquibase/changelog/20190623224152_added_entity_constraints_Affectation.xml" relativeToChangelogFile="false"/>
+      <include file="config/liquibase/changelog/20190621105820_added_entity_constraints_EmployeeDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190621105822_added_entity_constraints_FreelancerDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190624150857_added_entity_constraints_Compaign.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190621105820_added_entity_constraints_EmployeeDetails.xml" relativeToChangelogFile="false"/>
+   <include file="config/liquibase/changelog/20190621105822_added_entity_constraints_FreelancerDetails.xml" relativeToChangelogFile="false"/>
+   <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>
+

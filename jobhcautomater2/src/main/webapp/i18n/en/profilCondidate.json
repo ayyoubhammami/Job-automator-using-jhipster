@@ -1,0 +1,27 @@
+
+{
+    "jobHcAutomater2App": {
+        "profilCondidate" : {
+            "home": {
+                "title": "Profil Condidates",
+                "createLabel": "Create a new Profil Condidate",
+                "createOrEditLabel": "Create or edit a Profil Condidate"
+            },
+            "created": "A new Profil Condidate is created with identifier {{ param }}",
+            "updated": "A Profil Condidate is updated with identifier {{ param }}",
+            "deleted": "A Profil Condidate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Profil Condidate {{ id }}?"
+            },
+            "detail": {
+                "title": "Profil Condidate"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phoneNumber": "Phone Number",
+            "email": "Email",
+            "facebook": "Facebook",
+            "linkedIn": "Linked In"
+        }
+    }
+}

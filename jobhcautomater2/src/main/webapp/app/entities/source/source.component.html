@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.source.home.title">Sources</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-source" [routerLink]="['/source/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jobHcAutomater2App.source.home.createLabel">
+            Create new Source
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="sources">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="jobHcAutomater2App.source.name">Name</span></th>
+            <th><span jhiTranslate="jobHcAutomater2App.source.url">Url</span></th>
+            <th><span jhiTranslate="jobHcAutomater2App.source.publicKey">Public Key</span></th>
+            <th><span jhiTranslate="jobHcAutomater2App.source.tokenApi">Token Api</span></th>
+            <th><span jhiTranslate="jobHcAutomater2App.source.searchingUrl">Searching Url</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let source of sources ;trackBy: trackId">
+                <td><a [routerLink]="['/source', source.id, 'view' ]">{{source.id}}</a></td>
+                <td>{{source.name}}</td>
+                <td>{{source.url}}</td>
+                <td>{{source.publicKey}}</td>
+                <td>{{source.tokenApi}}</td>
+                <td>{{source.searchingUrl}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/source', source.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/source', source.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'source/'+ source.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

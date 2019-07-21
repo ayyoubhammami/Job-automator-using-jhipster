@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>JHipster password reset</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon"/>
+    </head>
+    <body>
+        <p>
+        	 Dear <span th:text="${name}"></span>, You may be interested in learning about below job we offer.
+        </p>
+        <div style="text-align: center;">
+        	<img src=""/>
+        	<h1 th:text="${compaign.title}">  </h1>
+        	<h2>JOB ID: <span th:text="${compaign.ref}"></span> </h2>
+        	<p th:text="${compaign.desciption}">	
+        	</p>
+        </div> 
+        <p>
+            <span>Regards, </span>
+            <br/>
+            <em>JOB Auto.</em>
+        </p>
+    </body>
+</html>

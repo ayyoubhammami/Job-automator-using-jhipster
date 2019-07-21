@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="affectation">
+            <h2><span jhiTranslate="jobHcAutomater2App.affectation.detail.title">Affectation</span> {{affectation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.affectation.date">Date</span></dt>
+                <dd>
+                    <span>{{affectation.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.affectation.job">Job</span></dt>
+                <dd>
+                    <div *ngIf="affectation.job">
+                        <a [routerLink]="['/job', affectation.job?.id, 'view']">{{affectation.job?.title}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.affectation.freelancerDetails">Freelancer Details</span></dt>
+                <dd>
+                    <span *ngFor="let freelancerDetails of affectation.freelancerDetails; let last = last">
+                        <a [routerLink]="['/freelancer-details', freelancerDetails?.id, 'view' ]">{{freelancerDetails.user.firstName}} {{freelancerDetails.user.lastName}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.affectation.employeeDetails">Employee Details</span></dt>
+                <dd>
+                    <span *ngFor="let employeeDetails of affectation.employeeDetails; let last = last">
+                        <a [routerLink]="['/employee-details', employeeDetails?.id, 'view' ]">{{employeeDetails.user.firstName}} {{employeeDetails.user.lastName}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/affectation', affectation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

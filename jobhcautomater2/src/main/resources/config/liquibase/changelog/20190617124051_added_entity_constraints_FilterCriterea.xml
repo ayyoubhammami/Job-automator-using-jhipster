@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity FilterCriterea.
+    -->
+    <changeSet id="20190617124051-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="internal_filter_id"
+                                 baseTableName="filter_criterea"
+                                 constraintName="fk_filter_criterea_internal_filter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="internal_filter"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="post">
+            <h2><span jhiTranslate="jobHcAutomater2App.post.detail.title">Post</span> {{post.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.post.ref">Ref</span></dt>
+                <dd>
+                    <span>{{post.ref}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.post.title">Title</span></dt>
+                <dd>
+                    <span>{{post.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.post.desciption">Desciption</span></dt>
+                <dd>
+                    <span>{{post.desciption}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.post.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="post.photo">
+                        <a (click)="openFile(post.photoContentType, post.photo)">
+                            <img [src]="'data:' + post.photoContentType + ';base64,' + post.photo" style="max-width: 100%;" alt="post image"/>
+                        </a>
+                        {{post.photoContentType}}, {{byteSize(post.photo)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/post', post.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

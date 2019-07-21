@@ -1,0 +1,8 @@
+entity Source{
+name String required,
+url String required,
+publicKey String,
+tokenApi String,
+searchingUrl String 
+
+}

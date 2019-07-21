@@ -1,0 +1,28 @@
+{
+    "name": "SocialMedia",
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "SocialMediaType",
+            "fieldValues": "Facebook,Linkedin,Twitter"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "compaign",
+            "otherEntityName": "compaign",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "socialMedia"
+        }
+    ],
+    "changelogDate": "20190624150858",
+    "entityTableName": "social_media",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

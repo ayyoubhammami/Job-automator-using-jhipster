@@ -1,0 +1,11 @@
+{
+    "jobHcAutomater2App": {
+        "JobType" : {
+            "null": "",
+            "HOURLY": "HOURLY",
+            "FIXED": "FIXED",
+            "CONTRACT": "CONTRACT",
+            "OTHER": "OTHER"
+        }
+    }
+}

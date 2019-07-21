@@ -1,0 +1,11 @@
+{
+    "jobHcAutomater2App": {
+        "Statut" : {
+            "null": "",
+            "OPEN": "OPEN",
+            "AWARDE": "AWARDE",
+            "CLOSED": "CLOSED",
+            "EXPIRED": "EXPIRED"
+        }
+    }
+}

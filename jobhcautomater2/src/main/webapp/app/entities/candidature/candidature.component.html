@@ -1,0 +1,131 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.candidature.home.title">Candidatures</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-candidature"
+            [routerLink]="['/candidature/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="jobHcAutomater2App.candidature.home.createLabel">
+                Create new Candidature
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br />
+    <div class="table-responsive" *ngIf="candidatures">
+        <table class="table table-striped">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+                    <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="status"><span jhiTranslate="jobHcAutomater2App.candidature.status">Status</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="date"><span jhiTranslate="jobHcAutomater2App.candidature.date">Date</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="profilCandidate.id"><span
+                            jhiTranslate="jobHcAutomater2App.candidature.profilCandidate">Profil Candidate</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="post.id"><span jhiTranslate="jobHcAutomater2App.candidature.post">Post</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']"
+                [infiniteScrollDistance]="0">
+                <tr *ngFor="let candidature of candidatures ;trackBy: trackId">
+                    <td><a [routerLink]="['/candidature', candidature.id, 'view' ]">{{candidature.id}}</a></td>
+                    <td jhiTranslate="{{'jobHcAutomater2App.Status.' + candidature.status}}">{{candidature.status}}</td>
+                    <td>{{candidature.date | date:'mediumDate'}}</td>
+                    <td>
+                        <div *ngIf="candidature.profilCandidate">
+                            <a
+                                [routerLink]="['../profil-candidate', candidature.profilCandidate?.id, 'view' ]">{{candidature.profilCandidate?.firstName}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="candidature.post">
+                            <a [routerLink]="['../post', candidature.post?.id, 'view' ]">{{candidature.post?.title}}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['/candidature', candidature.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                            <button type="submit" [routerLink]="['/candidature', candidature.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+                            <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'candidature/'+ candidature.id + '/delete'} }]"
+                                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- <jhi-drag-drop></jhi-drag-drop> -->
+
+
+    <h2>Drag and Drop demo</h2>
+
+    <table border="1" id="tab1" class="table table-hover">
+        <tr class="text-center">
+            <th  value="POSSIBLE">Possible</th>
+            <th value="IN_DISCUSSION">In Discussion</th>
+            <th value="Selected">Selected</th>
+            <th value="Rejected">Rejected</th>
+        </tr>
+
+        <tr>
+            <td (drop)="drop($event)"  (dragover)="allowDrop($event)" id="POSSIBLE" >
+                <button  class="list-group" id="dropper" class="list-group-item list-group-item-action list-group-item-info" draggable="true"
+                	(dragstart)="drag($event)" id={{candidature.id}}  *ngFor="let candidature of candidatures_possible ;trackBy: trackId" >
+                        {{candidature.profilCandidate?.firstName}}
+                </button>
+            </td>
+            <td (drop)="drop($event)"  (dragover)="allowDrop($event)" id="IN_DISCUSSION">
+                 <button  class="list-group" id="dropper" class="list-group-item list-group-item-action list-group-item-info" draggable="true"
+                    (dragstart)="drag($event)" id={{candidature.id}}  *ngFor="let candidature of candidatures_inDiscussion ;trackBy: trackId" >
+                    {{candidature.profilCandidate?.firstName}}
+                </button>
+            </td>
+            <td (drop)="drop($event)"  (dragover)="allowDrop($event)" id="Selected">
+                <button  class="list-group" id="dropper" class="list-group-item list-group-item-action list-group-item-info" draggable="true"
+                    (dragstart)="drag($event)" id={{candidature.id}}  *ngFor="let candidature of candidatures_selected ;trackBy: trackId" >
+                    {{candidature.profilCandidate?.firstName}}
+                </button>
+            </td>
+            <td (drop)="drop($event)"  (dragover)="allowDrop($event)" id="Rejected">
+                <button  class="list-group" id="dropper" class="list-group-item list-group-item-action list-group-item-info" draggable="true"
+                    (dragstart)="drag($event)" id={{candidature.id}}  *ngFor="let candidature of candidatures_rejected ;trackBy: trackId" >
+                    {{candidature.profilCandidate?.firstName}}
+                </button>
+            </td>
+        </tr>
+
+    </table>
+
+
+</div>

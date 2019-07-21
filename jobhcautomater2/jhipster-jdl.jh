@@ -1,0 +1,100 @@
+
+
+entity   ProfilCandidate{
+
+	firstName String required ,
+    lastName String required ,
+    phoneNumber String required,
+    email String required ,
+    facebook String,
+    linkedIn String,
+    twiter String
+      
+}
+
+
+  enum Status {
+    POSSIBLE, IN_DISCUSSION, Selected, Rejected
+  }
+
+entity   Candidature{
+	status Status required ,
+    date LocalDate 
+}
+
+entity Post {
+    Ref String required,
+    Title String required,
+    Desciption String required maxlength(2000),
+    Photo ImageBlob required
+}
+
+paginate ProfilCandidate, Post, Candidature with infinite-scroll
+
+relationship OneToMany {
+  
+  ProfilCandidate  to Candidature {profilCandidate(name) required} ,
+  Post  to Candidature  {post(name) required}
+}
+
+
+
+
+
+
+
+entity  EmployeeDetails {
+    phone1 String required  ,
+    phone2 String    ,
+  
+    cin Long  required   ,
+    delevredDate Instant required,
+    Cnss Long ,
+    married Boolean required,
+    
+    numberOfChildren Long,
+    motorized Boolean required,
+    salary Long required,
+    hiringDate  Instant required,
+    comments TextBlob   
+}
+entity   FreelancerDetails {
+    phone1 String required   ,
+    phone2  String ,
+    cin Long  required   ,
+    delevredDate Instant required,
+    cnss Long ,
+    married Boolean required,
+    numberOfChildren Long
+    motorized Boolean required,
+    salary Long required,
+    hiringDate  Instant required,
+    comments TextBlob  ,
+    channelOfHiring String required,
+    recommendation TextBlob  
+}
+relationship OneToOne {
+FreelancerDetails {user(firstName)}to User 
+ 
+}
+relationship OneToOne {
+EmployeeDetails {user(firstName)}to User 
+ 
+}
+paginate FreelancerDetails, EmployeeDetails with infinite-scroll
+
+entity   ProfilCondidate{
+
+	firstName String required ,
+    lastName String required ,
+    phoneNumber String required,
+    email String required ,
+    facebook String,
+    linkedIn String,
+      
+}
+
+paginate ProfilCondidate with infinite-scroll
+
+
+

@@ -1,0 +1,112 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.job.home.title">Jobs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-job" [routerLink]="['/job/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jobHcAutomater2App.job.home.createLabel">
+            Create new Job
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="jobs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="title"><span jhiTranslate="jobHcAutomater2App.job.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="jobHcAutomater2App.job.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="datePosted"><span jhiTranslate="jobHcAutomater2App.job.datePosted">Date Posted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country"><span jhiTranslate="jobHcAutomater2App.job.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="jobType"><span jhiTranslate="jobHcAutomater2App.job.jobType">Job Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+             <th jhiSortBy="linkForDetails"><span jhiTranslate="jobHcAutomater2App.job.linkForDetails">Link For Details</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+         
+         
+         
+           <!--  <th jhiSortBy="ratingClient"><span jhiTranslate="jobHcAutomater2App.job.ratingClient">Rating Client</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paiementMethod"><span jhiTranslate="jobHcAutomater2App.job.paiementMethod">Paiement Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="experienceLevel"><span jhiTranslate="jobHcAutomater2App.job.experienceLevel">Experience Level</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="clientHiresNumber"><span jhiTranslate="jobHcAutomater2App.job.clientHiresNumber">Client Hires Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="clientHistoryInfoIsPrevious"><span jhiTranslate="jobHcAutomater2App.job.clientHistoryInfoIsPrevious">Client History Info Is Previous</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfWantedHiring"><span jhiTranslate="jobHcAutomater2App.job.numberOfWantedHiring">Number Of Wanted Hiring</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfProposal"><span jhiTranslate="jobHcAutomater2App.job.numberOfProposal">Number Of Proposal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="categoryProject"><span jhiTranslate="jobHcAutomater2App.job.categoryProject">Category Project</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sourceSite"><span jhiTranslate="jobHcAutomater2App.job.sourceSite">Source Site</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statutOfOffer"><span jhiTranslate="jobHcAutomater2App.job.statutOfOffer">Statut Of Offer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minBudget"><span jhiTranslate="jobHcAutomater2App.job.minBudget">Min Budget</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxBudget"><span jhiTranslate="jobHcAutomater2App.job.maxBudget">Max Budget</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minHoursPerWeek"><span jhiTranslate="jobHcAutomater2App.job.minHoursPerWeek">Min Hours Per Week</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxHoursPerWeek"><span jhiTranslate="jobHcAutomater2App.job.maxHoursPerWeek">Max Hours Per Week</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minProjectLenghtWithMonthUnit"><span jhiTranslate="jobHcAutomater2App.job.minProjectLenghtWithMonthUnit">Min Project Lenght With Month Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxProjectLenghtWithMonthUnit"><span jhiTranslate="jobHcAutomater2App.job.maxProjectLenghtWithMonthUnit">Max Project Lenght With Month Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let job of jobs ;trackBy: trackId">
+                <td><a [routerLink]="['/job', job.id, 'view' ]">{{job.id}}</a></td>
+                <td>{{job.title}}</td>
+                <td>{{job.description}}</td>
+                <td>{{job.datePosted | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.Country.' + job.country}}">{{job.country}}</td>
+                    <td jhiTranslate="{{'jobHcAutomater2App.JobType.' + job.jobType}}">{{job.jobType}}</td>
+                        <td>{{job.linkForDetails}}</td>
+                        <!--   
+                    
+                <td>{{job.ratingClient}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.PaiementMethod.' + job.paiementMethod}}">{{job.paiementMethod}}</td>
+            
+                <td jhiTranslate="{{'jobHcAutomater2App.ExperienceLevel.' + job.experienceLevel}}">{{job.experienceLevel}}</td>
+                <td>{{job.clientHiresNumber}}</td>
+                <td>{{job.clientHistoryInfoIsPrevious}}</td>
+                <td>{{job.numberOfWantedHiring}}</td>
+                <td>{{job.numberOfProposal}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.CategoryProject.' + job.categoryProject}}">{{job.categoryProject}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.Source.' + job.sourceSite}}">{{job.sourceSite}}</td>
+          
+                <td jhiTranslate="{{'jobHcAutomater2App.Statut.' + job.statutOfOffer}}">{{job.statutOfOffer}}</td>
+                <td>{{job.minBudget}}</td>
+                <td>{{job.maxBudget}}</td>
+                <td>{{job.minHoursPerWeek}}</td>
+                <td>{{job.maxHoursPerWeek}}</td>
+                <td>{{job.minProjectLenghtWithMonthUnit}}</td>
+                <td>{{job.maxProjectLenghtWithMonthUnit}}</td>
+                 -->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/job', job.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/job', job.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'job/'+ job.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="jobs && jobs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

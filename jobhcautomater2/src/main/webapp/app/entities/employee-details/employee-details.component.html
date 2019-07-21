@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.employeeDetails.home.title">Employee Details</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-employee-details" [routerLink]="['/employee-details/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jobHcAutomater2App.employeeDetails.home.createLabel">
+            Create new Employee Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="employeeDetails">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.firstName"><span jhiTranslate="jobHcAutomater2App.employeeDetails.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone1"><span jhiTranslate="jobHcAutomater2App.employeeDetails.phone1">Phone 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone2"><span jhiTranslate="jobHcAutomater2App.employeeDetails.phone2">Phone 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cin"><span jhiTranslate="jobHcAutomater2App.employeeDetails.cin">Cin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="delevredDate"><span jhiTranslate="jobHcAutomater2App.employeeDetails.delevredDate">Delevred Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cnss"><span jhiTranslate="jobHcAutomater2App.employeeDetails.cnss">Cnss</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="married"><span jhiTranslate="jobHcAutomater2App.employeeDetails.married">Married</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfChildren"><span jhiTranslate="jobHcAutomater2App.employeeDetails.numberOfChildren">Number Of Children</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="motorized"><span jhiTranslate="jobHcAutomater2App.employeeDetails.motorized">Motorized</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="salary"><span jhiTranslate="jobHcAutomater2App.employeeDetails.salary">Salary</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hiringDate"><span jhiTranslate="jobHcAutomater2App.employeeDetails.hiringDate">Hiring Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comments"><span jhiTranslate="jobHcAutomater2App.employeeDetails.comments">Comments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+           
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let employeeDetails of employeeDetails ;trackBy: trackId">
+                <td><a [routerLink]="['/employee-details', employeeDetails.id, 'view' ]">{{employeeDetails.id}}</a></td>
+                <td>
+                    {{employeeDetails.user?.firstName}} {{employeeDetails.user?.lastName}}
+                </td>
+                <td>{{employeeDetails.phone1}}</td>
+                <td>{{employeeDetails.phone2}}</td>
+                <td>{{employeeDetails.cin}}</td>
+                <td>{{employeeDetails.delevredDate | date:'medium'}}</td>
+                <td>{{employeeDetails.cnss}}</td>
+                <td>{{employeeDetails.married}}</td>
+                <td>{{employeeDetails.numberOfChildren}}</td>
+                <td>{{employeeDetails.motorized}}</td>
+                <td>{{employeeDetails.salary}}</td>
+                <td>{{employeeDetails.hiringDate | date:'medium'}}</td>
+                <td>{{employeeDetails.comments}}</td>
+              
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/employee-details', employeeDetails.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/employee-details', employeeDetails.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'employee-details/'+ employeeDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

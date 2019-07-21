@@ -1,0 +1,11 @@
+{
+    "jobHcAutomater2App": {
+        "Status" : {
+            "null": "",
+            "POSSIBLE": "POSSIBLE",
+            "IN_DISCUSSION": "IN_DISCUSSION",
+            "Selected": "Selected",
+            "Rejected": "Rejected"
+        }
+    }
+}

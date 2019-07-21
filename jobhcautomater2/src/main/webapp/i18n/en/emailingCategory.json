@@ -1,0 +1,9 @@
+{
+    "jobHcAutomater2App": {
+        "EmailingCategory" : {
+            "null": "",
+            "JOB": "JOB",
+            "NEWS": "NEWS"
+        }
+    }
+}

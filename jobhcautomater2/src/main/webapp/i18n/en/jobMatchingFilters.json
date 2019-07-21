@@ -1,0 +1,24 @@
+
+{
+    "jobHcAutomater2App": {
+        "jobMatchingFilters" : {
+            "home": {
+                "title": "Job Matching Filters",
+                "createLabel": "Create a new Job Matching Filters",
+                "createOrEditLabel": "Create or edit a Job Matching Filters"
+            },
+            "created": "A new Job Matching Filters is created with identifier {{ param }}",
+            "updated": "A Job Matching Filters is updated with identifier {{ param }}",
+            "deleted": "A Job Matching Filters is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Job Matching Filters {{ id }}?"
+            },
+            "detail": {
+                "title": "Job Matching Filters"
+            },
+            "visited": "Visited",
+            "job": "Job",
+            "internalFilter": "Internal Filter"
+        }
+    }
+}

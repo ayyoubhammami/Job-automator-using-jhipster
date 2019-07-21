@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.internalFilter.home.title">Internal Filters</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-internal-filter" [routerLink]="['/internal-filter/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jobHcAutomater2App.internalFilter.home.createLabel">
+            Create new Internal Filter
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="internalFilters">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="internalFilterTitle"><span jhiTranslate="jobHcAutomater2App.internalFilter.internalFilterTitle">Internal Filter Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="internalFilterDescription"><span jhiTranslate="jobHcAutomater2App.internalFilter.internalFilterDescription">Internal Filter Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <!-- <th jhiSortBy="datePosted"><span jhiTranslate="jobHcAutomater2App.internalFilter.datePosted">Date Posted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country"><span jhiTranslate="jobHcAutomater2App.internalFilter.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ratingClient"><span jhiTranslate="jobHcAutomater2App.internalFilter.ratingClient">Rating Client</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paiementMethod"><span jhiTranslate="jobHcAutomater2App.internalFilter.paiementMethod">Paiement Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="jobType"><span jhiTranslate="jobHcAutomater2App.internalFilter.jobType">Job Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="experienceLevel"><span jhiTranslate="jobHcAutomater2App.internalFilter.experienceLevel">Experience Level</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="clientHiresNumber"><span jhiTranslate="jobHcAutomater2App.internalFilter.clientHiresNumber">Client Hires Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="clientHistoryInfoIsPrevious"><span jhiTranslate="jobHcAutomater2App.internalFilter.clientHistoryInfoIsPrevious">Client History Info Is Previous</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfWantedHiring"><span jhiTranslate="jobHcAutomater2App.internalFilter.numberOfWantedHiring">Number Of Wanted Hiring</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfProposal"><span jhiTranslate="jobHcAutomater2App.internalFilter.numberOfProposal">Number Of Proposal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="categoryProject"><span jhiTranslate="jobHcAutomater2App.internalFilter.categoryProject">Category Project</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sourceSite"><span jhiTranslate="jobHcAutomater2App.internalFilter.sourceSite">Source Site</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="linkForDetails"><span jhiTranslate="jobHcAutomater2App.internalFilter.linkForDetails">Link For Details</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statutOfOffer"><span jhiTranslate="jobHcAutomater2App.internalFilter.statutOfOffer">Statut Of Offer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minBudget"><span jhiTranslate="jobHcAutomater2App.internalFilter.minBudget">Min Budget</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxBudget"><span jhiTranslate="jobHcAutomater2App.internalFilter.maxBudget">Max Budget</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minHoursPerWeek"><span jhiTranslate="jobHcAutomater2App.internalFilter.minHoursPerWeek">Min Hours Per Week</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxHoursPerWeek"><span jhiTranslate="jobHcAutomater2App.internalFilter.maxHoursPerWeek">Max Hours Per Week</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minProjectLenghtWithMonthUnit"><span jhiTranslate="jobHcAutomater2App.internalFilter.minProjectLenghtWithMonthUnit">Min Project Lenght With Month Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxProjectLenghtWithMonthUnit"><span jhiTranslate="jobHcAutomater2App.internalFilter.maxProjectLenghtWithMonthUnit">Max Project Lenght With Month Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let internalFilter of internalFilters ;trackBy: trackId">
+                <td><a [routerLink]="['/internal-filter', internalFilter.id, 'view' ]">{{internalFilter.id}}</a></td>
+                <td>{{internalFilter.internalFilterTitle}}</td>
+                <td>{{internalFilter.internalFilterDescription}}</td>
+                <!-- <td>{{internalFilter.description}}</td>
+                <td>{{internalFilter.datePosted | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.Country.' + internalFilter.country}}">{{internalFilter.country}}</td>
+                <td>{{internalFilter.ratingClient}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.PaiementMethod.' + internalFilter.paiementMethod}}">{{internalFilter.paiementMethod}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.JobType.' + internalFilter.jobType}}">{{internalFilter.jobType}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.ExperienceLevel.' + internalFilter.experienceLevel}}">{{internalFilter.experienceLevel}}</td>
+                <td>{{internalFilter.clientHiresNumber}}</td>
+                <td>{{internalFilter.clientHistoryInfoIsPrevious}}</td>
+                <td>{{internalFilter.numberOfWantedHiring}}</td>
+                <td>{{internalFilter.numberOfProposal}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.CategoryProject.' + internalFilter.categoryProject}}">{{internalFilter.categoryProject}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.Source.' + internalFilter.sourceSite}}">{{internalFilter.sourceSite}}</td>
+                <td>{{internalFilter.linkForDetails}}</td>
+                <td jhiTranslate="{{'jobHcAutomater2App.Statut.' + internalFilter.statutOfOffer}}">{{internalFilter.statutOfOffer}}</td>
+                <td>{{internalFilter.minBudget}}</td>
+                <td>{{internalFilter.maxBudget}}</td>
+                <td>{{internalFilter.minHoursPerWeek}}</td>
+                <td>{{internalFilter.maxHoursPerWeek}}</td>
+                <td>{{internalFilter.minProjectLenghtWithMonthUnit}}</td>
+                <td>{{internalFilter.maxProjectLenghtWithMonthUnit}}</td> -->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/internal-filter', internalFilter.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/internal-filter', internalFilter.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'internal-filter/'+ internalFilter.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="internalFilters && internalFilters.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

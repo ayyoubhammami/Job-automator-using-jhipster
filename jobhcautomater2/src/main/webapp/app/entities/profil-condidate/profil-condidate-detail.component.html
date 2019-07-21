@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="profilCondidate">
+            <h2><span jhiTranslate="jobHcAutomater2App.profilCondidate.detail.title">Profil Condidate</span> {{profilCondidate.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.profilCondidate.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{profilCondidate.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.profilCondidate.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{profilCondidate.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.profilCondidate.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{profilCondidate.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.profilCondidate.email">Email</span></dt>
+                <dd>
+                    <span>{{profilCondidate.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.profilCondidate.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{profilCondidate.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.profilCondidate.linkedIn">Linked In</span></dt>
+                <dd>
+                    <span>{{profilCondidate.linkedIn}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/profil-condidate', profilCondidate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

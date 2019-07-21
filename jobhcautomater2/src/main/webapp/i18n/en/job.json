@@ -1,0 +1,43 @@
+
+{
+    "jobHcAutomater2App": {
+        "job" : {
+            "home": {
+                "title": "Jobs",
+                "createLabel": "Create a new Job",
+                "createOrEditLabel": "Create or edit a Job"
+            },
+            "created": "A new Job is created with identifier {{ param }}",
+            "updated": "A Job is updated with identifier {{ param }}",
+            "deleted": "A Job is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Job {{ id }}?"
+            },
+            "detail": {
+                "title": "Job"
+            },
+            "title": "Title",
+            "description": "Description",
+            "datePosted": "Date Posted",
+            "country": "Country",
+            "ratingClient": "Rating Client",
+            "paiementMethod": "Paiement Method",
+            "jobType": "Job Type",
+            "experienceLevel": "Experience Level",
+            "clientHiresNumber": "Client Hires Number",
+            "clientHistoryInfoIsPrevious": "Client History Info Is Previous",
+            "numberOfWantedHiring": "Number Of Wanted Hiring",
+            "numberOfProposal": "Number Of Proposal",
+            "categoryProject": "Category Project",
+            "sourceSite": "Source Site",
+            "linkForDetails": "Link For Details",
+            "statutOfOffer": "Statut Of Offer",
+            "minBudget": "Min Budget",
+            "maxBudget": "Max Budget",
+            "minHoursPerWeek": "Min Hours Per Week",
+            "maxHoursPerWeek": "Max Hours Per Week",
+            "minProjectLenghtWithMonthUnit": "Min Project Lenght With Month Unit",
+            "maxProjectLenghtWithMonthUnit": "Max Project Lenght With Month Unit"
+        }
+    }
+}

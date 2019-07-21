@@ -1,0 +1,9 @@
+{
+    "jobHcAutomater2App": {
+        "PaiementMethod" : {
+            "null": "",
+            "VERIFIED": "VERIFIED",
+            "NOTVERIFIED": "NOTVERIFIED"
+        }
+    }
+}

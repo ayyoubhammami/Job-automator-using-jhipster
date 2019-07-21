@@ -1,0 +1,18 @@
+<h2>Drag and Drop demo</h2>
+<div  id="div1"
+      (drop)="drop($event)"
+      (dragover)="allowDrop($event)">
+
+      <img
+      src="https://images.pexels.com/photos/658687/pexels-photo-658687.jpeg?auto=compress&cs=tinysrgb&h=350"
+      draggable="true"
+      (dragstart)="drag($event)"
+      id="drag1"
+      width="88"
+      height="31">
+</div>
+
+<div id="div2"
+  (drop)="drop($event)"
+  (dragover)="allowDrop($event)">
+</div>

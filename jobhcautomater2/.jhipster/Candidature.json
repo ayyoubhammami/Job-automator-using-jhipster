@@ -1,0 +1,42 @@
+{
+    "name": "Candidature",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "POSSIBLE,IN_DISCUSSION,Selected,Rejected",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "profilCandidate",
+            "otherEntityName": "profilCandidate",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "post",
+            "otherEntityName": "post",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20190619132713",
+    "entityTableName": "candidature",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

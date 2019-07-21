@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jobHcAutomater2App.freelancerDetails.home.title">Freelancer Details</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-freelancer-details" [routerLink]="['/freelancer-details/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jobHcAutomater2App.freelancerDetails.home.createLabel">
+            Create new Freelancer Details
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="freelancerDetails">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.firstName"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone1"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.phone1">Phone 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone2"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.phone2">Phone 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cin"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.cin">Cin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="delevredDate"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.delevredDate">Delevred Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cnss"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.cnss">Cnss</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="married"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.married">Married</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfChildren"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.numberOfChildren">Number Of Children</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="motorized"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.motorized">Motorized</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="salary"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.salary">Salary</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="hiringDate"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.hiringDate">Hiring Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comments"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.comments">Comments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="channelOfHiring"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.channelOfHiring">Channel Of Hiring</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recommendation"><span jhiTranslate="jobHcAutomater2App.freelancerDetails.recommendation">Recommendation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let freelancerDetails of freelancerDetails ;trackBy: trackId">
+                <td><a [routerLink]="['/freelancer-details', freelancerDetails.id, 'view' ]">{{freelancerDetails.id}}</a></td>
+                <td>
+                        {{freelancerDetails.user?.firstName}} {{freelancerDetails.user?.lastName}}
+                    </td>
+                <td>{{freelancerDetails.phone1}}</td>
+                <td>{{freelancerDetails.phone2}}</td>
+                <td>{{freelancerDetails.cin}}</td>
+                <td>{{freelancerDetails.delevredDate | date:'medium'}}</td>
+                <td>{{freelancerDetails.cnss}}</td>
+                <td>{{freelancerDetails.married}}</td>
+                <td>{{freelancerDetails.numberOfChildren}}</td>
+                <td>{{freelancerDetails.motorized}}</td>
+                <td>{{freelancerDetails.salary}}</td>
+                <td>{{freelancerDetails.hiringDate | date:'medium'}}</td>
+                <td>{{freelancerDetails.comments}}</td>
+                <td>{{freelancerDetails.channelOfHiring}}</td>
+                <td>{{freelancerDetails.recommendation}}</td>
+                
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/freelancer-details', freelancerDetails.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/freelancer-details', freelancerDetails.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'freelancer-details/'+ freelancerDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

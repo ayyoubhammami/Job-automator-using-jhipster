@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity InternalFilter.
+    -->
+    <changeSet id="20190625214522-1" author="jhipster">
+        <createTable tableName="internal_filter">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="internal_filter_title" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="internal_filter_description" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_posted" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="country" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="rating_client" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="paiement_method" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="job_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="experience_level" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="client_hires_number" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="client_history_info_is_previous" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="number_of_wanted_hiring" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="number_of_proposal" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="category_project" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="source_site" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="link_for_details" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="statut_of_offer" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="min_budget" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="max_budget" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="min_hours_per_week" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="max_hours_per_week" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="min_project_lenght_with_month_unit" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="max_project_lenght_with_month_unit" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

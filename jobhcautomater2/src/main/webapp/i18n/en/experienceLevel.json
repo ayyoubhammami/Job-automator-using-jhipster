@@ -1,0 +1,10 @@
+{
+    "jobHcAutomater2App": {
+        "ExperienceLevel" : {
+            "null": "",
+            "EntryLevel": "EntryLevel",
+            "Intermediate": "Intermediate",
+            "Expert": "Expert"
+        }
+    }
+}

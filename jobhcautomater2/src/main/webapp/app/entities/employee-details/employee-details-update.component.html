@@ -1,0 +1,148 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-employee-details-heading" jhiTranslate="jobHcAutomater2App.employeeDetails.home.createOrEditLabel">Create or edit a Employee Details</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!employeeDetails.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="employeeDetails.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.phone1" for="field_phone1">Phone 1</label>
+                    <input type="text" class="form-control" name="phone1" id="field_phone1"
+                        [(ngModel)]="employeeDetails.phone1" required/>
+                    <div [hidden]="!(editForm.controls.phone1?.dirty && editForm.controls.phone1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.phone2" for="field_phone2">Phone 2</label>
+                    <input type="text" class="form-control" name="phone2" id="field_phone2"
+                        [(ngModel)]="employeeDetails.phone2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.cin" for="field_cin">Cin</label>
+                    <input type="number" class="form-control" name="cin" id="field_cin"
+                        [(ngModel)]="employeeDetails.cin" required/>
+                    <div [hidden]="!(editForm.controls.cin?.dirty && editForm.controls.cin?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.cin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.cin?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.delevredDate" for="field_delevredDate">Delevred Date</label>
+                    <div class="d-flex">
+                        <input id="field_delevredDate" type="datetime-local" class="form-control" name="delevredDate" [(ngModel)]="delevredDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.delevredDate?.dirty && editForm.controls.delevredDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.delevredDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.delevredDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.cnss" for="field_cnss">Cnss</label>
+                    <input type="number" class="form-control" name="cnss" id="field_cnss"
+                        [(ngModel)]="employeeDetails.cnss" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.married" for="field_married">Married</label>
+                    <input type="checkbox" class="form-control" name="married" id="field_married"
+                        [(ngModel)]="employeeDetails.married" />
+                    <div [hidden]="!(editForm.controls.married?.dirty && editForm.controls.married?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.married?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.numberOfChildren" for="field_numberOfChildren">Number Of Children</label>
+                    <input type="number" class="form-control" name="numberOfChildren" id="field_numberOfChildren"
+                        [(ngModel)]="employeeDetails.numberOfChildren" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.motorized" for="field_motorized">Motorized</label>
+                    <input type="checkbox" class="form-control" name="motorized" id="field_motorized"
+                        [(ngModel)]="employeeDetails.motorized" />
+                    <div [hidden]="!(editForm.controls.motorized?.dirty && editForm.controls.motorized?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.motorized?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.salary" for="field_salary">Salary</label>
+                    <input type="number" class="form-control" name="salary" id="field_salary"
+                        [(ngModel)]="employeeDetails.salary" required/>
+                    <div [hidden]="!(editForm.controls.salary?.dirty && editForm.controls.salary?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.salary?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.salary?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.hiringDate" for="field_hiringDate">Hiring Date</label>
+                    <div class="d-flex">
+                        <input id="field_hiringDate" type="datetime-local" class="form-control" name="hiringDate" [(ngModel)]="hiringDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.hiringDate?.dirty && editForm.controls.hiringDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.hiringDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.hiringDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.comments" for="field_comments">Comments</label>
+                    <textarea class="form-control" name="comments" id="field_comments"
+                        [(ngModel)]="employeeDetails.comments" ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jobHcAutomater2App.employeeDetails.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="employeeDetails.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === employeeDetails.user?.id ? employeeDetails.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}} {{userOption.lastName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

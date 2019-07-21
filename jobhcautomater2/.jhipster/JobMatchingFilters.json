@@ -1,0 +1,36 @@
+{
+    "name": "JobMatchingFilters",
+    "fields": [
+        {
+            "fieldName": "visited",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "job",
+            "otherEntityName": "job",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "jobMatchingFilters"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "internalFilter",
+            "otherEntityName": "internalFilter",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "jobMatchingFilters"
+        }
+    ],
+    "changelogDate": "20190617124613",
+    "entityTableName": "job_matching_filters",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

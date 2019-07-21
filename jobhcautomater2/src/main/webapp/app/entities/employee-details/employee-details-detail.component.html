@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employeeDetails">
+            <h2><span jhiTranslate="jobHcAutomater2App.employeeDetails.detail.title">Employee Details</span> {{employeeDetails.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.phone1">Phone 1</span></dt>
+                <dd>
+                    <span>{{employeeDetails.phone1}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.phone2">Phone 2</span></dt>
+                <dd>
+                    <span>{{employeeDetails.phone2}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.cin">Cin</span></dt>
+                <dd>
+                    <span>{{employeeDetails.cin}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.delevredDate">Delevred Date</span></dt>
+                <dd>
+                    <span>{{employeeDetails.delevredDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.cnss">Cnss</span></dt>
+                <dd>
+                    <span>{{employeeDetails.cnss}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.married">Married</span></dt>
+                <dd>
+                    <span>{{employeeDetails.married}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.numberOfChildren">Number Of Children</span></dt>
+                <dd>
+                    <span>{{employeeDetails.numberOfChildren}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.motorized">Motorized</span></dt>
+                <dd>
+                    <span>{{employeeDetails.motorized}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.salary">Salary</span></dt>
+                <dd>
+                    <span>{{employeeDetails.salary}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.hiringDate">Hiring Date</span></dt>
+                <dd>
+                    <span>{{employeeDetails.hiringDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.comments">Comments</span></dt>
+                <dd>
+                    <span>{{employeeDetails.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.employeeDetails.user">User</span></dt>
+                <dd>
+                    {{employeeDetails.user?.firstName}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee-details', employeeDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

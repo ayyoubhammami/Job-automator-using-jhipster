@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="internalFilter">
+            <h2><span jhiTranslate="jobHcAutomater2App.internalFilter.detail.title">Internal Filter</span> {{internalFilter.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.internalFilterTitle">Internal Filter Title</span></dt>
+                <dd>
+                    <span>{{internalFilter.internalFilterTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.internalFilterDescription">Internal Filter Description</span></dt>
+                <dd>
+                    <span>{{internalFilter.internalFilterDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.datePosted">Date Posted</span></dt>
+                <dd>
+                    <span>{{internalFilter.datePosted}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.country">Country</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.Country.' + internalFilter.country}}">{{internalFilter.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.ratingClient">Rating Client</span></dt>
+                <dd>
+                    <span>{{internalFilter.ratingClient}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.paiementMethod">Paiement Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.PaiementMethod.' + internalFilter.paiementMethod}}">{{internalFilter.paiementMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.jobType">Job Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.JobType.' + internalFilter.jobType}}">{{internalFilter.jobType}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.experienceLevel">Experience Level</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.ExperienceLevel.' + internalFilter.experienceLevel}}">{{internalFilter.experienceLevel}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.clientHiresNumber">Client Hires Number</span></dt>
+                <dd>
+                    <span>{{internalFilter.clientHiresNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.clientHistoryInfoIsPrevious">Client History Info Is Previous</span></dt>
+                <dd>
+                    <span>{{internalFilter.clientHistoryInfoIsPrevious}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.numberOfWantedHiring">Number Of Wanted Hiring</span></dt>
+                <dd>
+                    <span>{{internalFilter.numberOfWantedHiring}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.numberOfProposal">Number Of Proposal</span></dt>
+                <dd>
+                    <span>{{internalFilter.numberOfProposal}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.categoryProject">Category Project</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.CategoryProject.' + internalFilter.categoryProject}}">{{internalFilter.categoryProject}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.sourceSite">Source Site</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.Source.' + internalFilter.sourceSite}}">{{internalFilter.sourceSite}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.linkForDetails">Link For Details</span></dt>
+                <dd>
+                    <span>{{internalFilter.linkForDetails}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.statutOfOffer">Statut Of Offer</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jobHcAutomater2App.Statut.' + internalFilter.statutOfOffer}}">{{internalFilter.statutOfOffer}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.minBudget">Min Budget</span></dt>
+                <dd>
+                    <span>{{internalFilter.minBudget}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.maxBudget">Max Budget</span></dt>
+                <dd>
+                    <span>{{internalFilter.maxBudget}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.minHoursPerWeek">Min Hours Per Week</span></dt>
+                <dd>
+                    <span>{{internalFilter.minHoursPerWeek}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.maxHoursPerWeek">Max Hours Per Week</span></dt>
+                <dd>
+                    <span>{{internalFilter.maxHoursPerWeek}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.minProjectLenghtWithMonthUnit">Min Project Lenght With Month Unit</span></dt>
+                <dd>
+                    <span>{{internalFilter.minProjectLenghtWithMonthUnit}}</span>
+                </dd>
+                <dt><span jhiTranslate="jobHcAutomater2App.internalFilter.maxProjectLenghtWithMonthUnit">Max Project Lenght With Month Unit</span></dt>
+                <dd>
+                    <span>{{internalFilter.maxProjectLenghtWithMonthUnit}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/internal-filter', internalFilter.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
